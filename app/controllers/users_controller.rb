@@ -11,5 +11,9 @@ class UsersController < ApplicationController
     #   SQL
     #   @users = @users.joins(:available_dates).where(sql_subquery, query: "%#{params[:query]}%")
     # end
+    def show
+      @user = User.find(params[:id])
+      # @booking = Booking.new
+    end
   end
 end
