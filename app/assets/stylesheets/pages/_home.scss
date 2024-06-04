@@ -1,1 +1,31 @@
-// Specific CSS for your home-page
+.home-container {
+  width: 80%;
+  margin: auto;
+
+}
+
+.home-title {
+  margin-top: 5em;
+}
+
+.home-title h1 {
+  font-size: 3em;
+}
+
+.home-form {
+  text-align: center;
+  background-color: lightblue;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.home-form-field{
+
+  width: 30%;
+}
+
+.home-cards-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
