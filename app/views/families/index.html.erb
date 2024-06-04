@@ -11,14 +11,14 @@
   <div class="index-list">
   <% if @families.any? %>
     <% @families.each do |user| %>
-      <%= link_to user_path(user), class: "family-card" do %>
+      <%= link_to family_path(user), class: "family-card" do %>
           <h3>
             <%= user.family_name %>
           </h3>
           <h4>
-            <%= user.home_adress %>
+            <%= user.home_address %>
           </h4>
-          <%= cl_image_tag user.photo.key, height: 160, crop: :fill %>
+          <%#= cl_image_tag user.photo.key, height: 160, crop: :fill %>
            <i style="border:1px solid black;border-radius:15px;"class="p-2 fa-solid fa-arrow-right"></i>
       <% end %>
     <% end %>
