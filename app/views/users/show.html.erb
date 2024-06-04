@@ -1,0 +1,30 @@
+<div class = "container-family-show">
+  <div class = "big-container-show">
+    <%# <%= cl_image_tag @user.photo.key, width: 400, crop: :fill %>
+    <div class="container-text-show">
+          <h1 style="font-family:syne;font-weight:bold"><%= @user.family_name.upcase %></h1>
+          <div class="mt-0">
+          <div class="mt-0 d-flex">
+            <div>
+              <p><%= @user.children.name %></p>
+            </div>
+            <div class="family-description">
+              <p>Description of the family</p>
+            </div>
+            <%# <div data-controller="toggle" class="container-calendar ">
+              <button data-action="click->toggle#fire" class="btn btn-primary">Ask for a babysitting</button>
+              <div data-toggle-target="togglableForm"class="d-none">
+              <%= simple_form_for [@family, @booking] do |f| %>
+                <%# <p class="mt-2 mb-0">Starting date</p>
+                <%= f.date_field :starting_date, as: :date, min: Date.today, class: " form-control" %>
+                <%# <p class="mt-2 mb-0">Ending date</p>
+                <%= f.date_field :ending_date, as: :date, class: " form-control" %>
+                <%# <%= f.submit class: "mt-3 btn btn-success" %>
+              <%# <% end %>
+              <%# </div> %>
+            </div>
+          </div>
+    </div>
+
+  </div>
+</div>
