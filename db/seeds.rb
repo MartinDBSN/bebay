@@ -1,9 +1,21 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+Family.destroy_all
+User.destroy_all
+
+puts "Creating Users and their Family..."
+
+kenta = User.create(email: "kenta@test.com", password: "123456")
+kenta_family = Family.create(family_name: "Merry", home_address: "Avenue Street, 50, 1000 Brussels", point_count: 100, user: kenta)
+
+hugo = User.create(email: "hugo@test.com", password: "123456")
+hugo_family = Family.create(family_name: "Nieuwenhuyse", home_address: "Avenue Street, 50, 1000 Brussels", point_count: 100, user: hugo)
+
+martin = User.create(email: "martin@test.com", password: "123456")
+martin_family = Family.create(family_name: "Dubuisson", home_address: "Avenue Street, 50, 1000 Brussels", point_count: 100, user: martin)
+
+pedro = User.create(email: "pedro@test.com", password: "123456")
+pedro_family = Family.create(family_name: "Pan", home_address: "Avenue Street, 50, 1000 Brussels", point_count: 100, user: pedro)
+
+mathieu = User.create(email: "mathieu@test.com", password: "123456")
+mathieu_family = Family.create(family_name: "Heynen", home_address: "Avenue Street, 50, 1000 Brussels", point_count: 100, user: mathieu)
+
+puts "Created #{User.count} Users and their Family !"
