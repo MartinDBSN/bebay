@@ -13,7 +13,7 @@ class FamiliesController < ApplicationController
     # end
 
     def show
-      @user = User.find(params[:id])
+      @family = User.find(params[:id])
       # @booking = Booking.new
     end
   end
