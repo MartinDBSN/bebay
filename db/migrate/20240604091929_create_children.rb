@@ -4,7 +4,7 @@ class CreateChildren < ActiveRecord::Migration[7.1]
       t.string :name
       t.string :gender
       t.date :birthday
-      t.references :family, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
