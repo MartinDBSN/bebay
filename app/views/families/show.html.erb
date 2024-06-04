@@ -1,12 +1,12 @@
 <div class = "container-family-show">
   <div class = "big-container-show">
-    <%# <%= cl_image_tag @user.photo.key, width: 400, crop: :fill %>
+    <%# <%= cl_image_tag @family.photo.key, width: 400, crop: :fill %>
     <div class="container-text-show">
-          <h1 style="font-family:syne;font-weight:bold"><%= @user.family_name.upcase %></h1>
+          <h1 style="font-family:syne;font-weight:bold"><%= @family.family_name.upcase %></h1>
           <div class="mt-0">
           <div class="mt-0 d-flex">
             <div>
-              <p><%= @user.children.name %></p>
+              <p><%= @family.children.name %></p>
             </div>
             <div class="family-description">
               <p>Description of the family</p>
