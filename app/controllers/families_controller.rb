@@ -1,7 +1,7 @@
 class FamiliesController < ApplicationController
   def index
     @families = User.all
-#index method to adapt when doing the dates query part.
+    #index method to adapt when doing the dates query part.
     # if params[:query].present?
     #   sql_subquery = <<~SQL
     #     available_dates.category ILIKE :query
