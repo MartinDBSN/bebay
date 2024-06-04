@@ -4,7 +4,7 @@
     <p>Your childcare platform</p>
   </div>
 
-  <div class="home-form">
+  <div class="home-form" data-controller="search">
     <%= form_with model: @family do |f| %>
         <%= f.select :activity, [['Babysitting',1],['Pick up at school', 2]] %>
         <%= f.text_field :location, placeholder: "Enter your address" %>
