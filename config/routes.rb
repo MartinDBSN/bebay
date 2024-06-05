@@ -4,4 +4,8 @@ Rails.application.routes.draw do
 
   resources :families
   resources :bookings
+  resources :children, only: [:new, :create, :edit, :update, :destroy]
+
+  get "/users/dashboard", to: "bookings#index", as: :dashboard
+
 end

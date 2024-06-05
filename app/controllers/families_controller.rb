@@ -31,6 +31,6 @@ class FamiliesController < ApplicationController
 
   def show
     @family = User.find(params[:id])
-    # @booking = Booking.new
+    @booking = Booking.new
   end
 end
