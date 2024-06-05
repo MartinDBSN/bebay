@@ -17,7 +17,7 @@ class FamiliesController < ApplicationController
     # #   @users = @users.joins(:available_dates).where(sql_subquery, query: "%#{params[:query]}%")
     end
   end
-  
+
   def show
     @family = User.find(params[:id])
     # @booking = Booking.new
