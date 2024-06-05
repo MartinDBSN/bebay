@@ -11,4 +11,20 @@ class FamiliesController < ApplicationController
     @booking = Booking.new
   end
 
+  def edit
+  end
+
+  def update
+    if @family.update(family_params)
+      redirect_to dashboard_path, notice: 'Family was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  private
+
+  def family_params
+    params.require(:user).permit(:name, :email, :location, :activity, :date)
+  end
 end

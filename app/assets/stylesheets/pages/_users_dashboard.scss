@@ -1,19 +1,12 @@
-// Import page-specific CSS files here.
-@import "home";
-@import "users_dashboard";
-
-.families-container {
+.dashboard-container {
   display: flex;
   justify-content: center;
+  border: 1px solid rgb(0, 0, 0);
+  padding: 2em;
+  margin: 2em;
 }
 
-.family-cards-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 2em;
-}
-
-.criteria-checkboxes {
+.1-my-family-container {
   display: flex;
   flex-direction: column;
   justify-content: left;
