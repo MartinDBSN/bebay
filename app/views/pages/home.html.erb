@@ -7,8 +7,8 @@
   <div class="home-form" data-controller="search">
     <%= form_with url: families_path, method: :get do |f| %>
         <%= f.select :activity, [['Babysitting'],['Pick up at school']] %>
-        <%= f.text_field :location, placeholder: "Enter your address" %>
-        <%= f.text_field :date, placeholder: "Pick a date & time",
+        <%= f.text_field :location, required: true, placeholder: "Enter your address" %>
+        <%= f.text_field :date, required: true, placeholder: "Pick a date & time",
             data: {
             controller: "datepicker"}
         %>

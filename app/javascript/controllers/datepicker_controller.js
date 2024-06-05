@@ -7,7 +7,8 @@ export default class extends Controller {
     console.log("pq")
     flatpickr(this.element, {
       minDate: "today",
-      enableTime: true
+      enableTime: true,
+      allowInput: true
     })
 
   }
