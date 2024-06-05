@@ -1,30 +1,31 @@
-<div class = "container-family-show">
-  <div class = "big-container-show">
+<div class = "page-container">
+  <div class = "family-container">
     <%# <%= cl_image_tag @family.photo.key, width: 400, crop: :fill %>
-    <div class="container-text-show">
-          <h1 style="font-family:syne;font-weight:bold"><%= @family.family_name.upcase %></h1>
-          <div class="mt-0">
-          <div class="mt-0 d-flex">
-            <div>
-              <p><%= @family.children.name %></p>
-            </div>
-            <div class="family-description">
-              <p>Description of the family</p>
-            </div>
-            <%# <div data-controller="toggle" class="container-calendar ">
-              <button data-action="click->toggle#fire" class="btn btn-primary">Ask for a babysitting</button>
-              <div data-toggle-target="togglableForm"class="d-none">
-              <%= simple_form_for [@family, @booking] do |f| %>
-                <%# <p class="mt-2 mb-0">Starting date</p>
-                <%= f.date_field :starting_date, as: :date, min: Date.today, class: " form-control" %>
-                <%# <p class="mt-2 mb-0">Ending date</p>
-                <%= f.date_field :ending_date, as: :date, class: " form-control" %>
-                <%# <%= f.submit class: "mt-3 btn btn-success" %>
-              <%# <% end %>
-              <%# </div> %>
-            </div>
-          </div>
+    <div class="family-container-photo-title">
+      <h1><%= @family.family_name %></h1>
+      <img src="https://lh3.googleusercontent.com/9SnAwnXKWV0vglSkD-dWkoY1_lKfCMxxsa9tfEpTS5LKgJYCJgxiT3TZ3sGLLIeRRzU5JIiZ42DNRLg8QKRbiKe1jlU5PRG5IMQ3zLFIIQNR7LRcCpAgG5ka7q552rw2cs-h5_NfaEPgcSP07X10-g">
     </div>
-
+    <div class="family-container-text-button">
+      <div class="family-description">
+        <p><%= @family.children.name %></p>
+        <p>In the heart of a cozy home, laughter dances through the air like confetti as the Smith family gathers around the dinner table. Parents, John and Emily, share warm smiles as they recount tales of their day, their love evident in the gentle touches and shared glances exchanged between them. Their children, Sarah and David, playfully banter, their bond woven tight with shared secrets and unspoken understanding. In this haven of love and acceptance, every hug is a sanctuary, every shared meal a celebration, and every bedtime story a cherished tradition. Together, they weather life's storms with unwavering support and emerge stronger, their love a beacon of warmth in a world of uncertainty</p>
+      </div>
+      <div class="family-availabilities">
+        <%# <div data-controller="toggle" class="container-calendar ">
+          <button data-action="click->toggle#fire" class="btn btn-primary">Ask for a babysitting</button>
+          <div data-toggle-target="togglableForm"class="d-none">
+          <%= simple_form_for [@family, @booking] do |f| %>
+            <%# <p class="mt-2 mb-0">Starting date</p>
+            <%= f.date_field :starting_date, as: :date, min: Date.today, class: " form-control" %>
+            <%# <p class="mt-2 mb-0">Ending date</p>
+            <%= f.date_field :ending_date, as: :date, class: " form-control" %>
+            <%# <%= f.submit class: "mt-3 btn btn-success" %>
+          <%# <% end %>
+          <%# </div>
+        <%# </div> %>
+        </div>
+      </div>
+      <button data-action="click->toggle#fire" class="request-button">Send a request</button>
+    </div>
   </div>
 </div>

@@ -2,31 +2,41 @@
   <div class='header-banner'>
     <h1>Browse families</h1>
   </div>
-<div class="mt-2 mb-2"style="display:flex; justify-content:center;">
-  <%= form_with url: families_path, method: :get, class: "d-flex" do%>
-  <%= text_field_tag :query, params[:query], style: "width:69vw;border-radius:15px;background-color:#1B1B1B;border-color:#D9D9D6;", class: "placeholder-grey rounded form-control", placeholder: "Type a keyword" %>
-  <%= submit_tag "Search", name:"" %>
-  <% end %>
-  </div>
-  <div class="index-list">
-  <% if @families.any? %>
-    <% @families.each do |family| %>
-      <%= link_to family_path(family), class: "family-card" do %>
-          <h3>
-            <%= family.family_name %>
-          </h3>
-          <h4>
-            <%= family.home_address %>
-          </h4>
-          <%#= cl_image_tag family.photo.key, height: 160, crop: :fill %>
-           <i style="border:1px solid black;border-radius:15px;"class="p-2 fa-solid fa-arrow-right"></i>
-      <% end %>
+  <div class="search-bar">
+    <%= form_with url: families_path, method: :get, class: "d-flex" do%>
+    <%= text_field_tag :query, params[:query], style: "width:69vw;border-radius:15px;background-color:#1B1B1B;border-color:#D9D9D6;", class: "placeholder-grey rounded form-control", placeholder: "Type a keyword" %>
+    <%= submit_tag "Search", name:"" %>
     <% end %>
-  <% else %>
   </div>
-  <div style="text-align:center!important;">
-    <p class="no-matches">🤓<br> Sorry, nothing matches your search.</p>
+  <div class="families-container">
+    <div class="family-index-left-pane col-lg-3">
+      <h2>Refine Search</h2>
+      <div class="criteria-checkboxes">
+        <label><input type="checkbox" name="criteria1"> Criteria 1</label>
+        <label><input type="checkbox" name="criteria2"> Criteria 2</label>
+        <label><input type="checkbox" name="criteria3"> Criteria 3</label>
+        <label><input type="checkbox" name="criteria3"> Criteria 4</label>
+      </div>
     </div>
-  <% end %>
-
+    <div class="family-cards-container col-lg-9">
+      <% if @families.any? %>
+        <% @families.each do |family| %>
+        <div class="family-card">
+          <%= link_to family_path(family) do%>
+          <div class="family-card-content">
+            <h3><%= family.family_name %></h3>
+            <img src="https://lh3.googleusercontent.com/9SnAwnXKWV0vglSkD-dWkoY1_lKfCMxxsa9tfEpTS5LKgJYCJgxiT3TZ3sGLLIeRRzU5JIiZ42DNRLg8QKRbiKe1jlU5PRG5IMQ3zLFIIQNR7LRcCpAgG5ka7q552rw2cs-h5_NfaEPgcSP07X10-g">
+            <%#= cl_image_tag family.photo.key, height: 160, crop: :fill %>
+            <h5><%= family.home_address %></h5>
+          </div>
+        </div>
+          <% end %>
+        <% end %>
+        </div>
+        <% else %>
+          <div style="text-align:center!important;">
+          <p class="no-matches">🤓<br> Sorry, nothing matches your search.</p>
+          </div>
+      <% end %>
+  </div>
 </div>
