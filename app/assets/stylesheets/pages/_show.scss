@@ -1,0 +1,24 @@
+.family-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  margin: 3em 5em;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+.family-container-photo-title {
+  margin: 2em;
+}
+
+.family-container-text-button {
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+}
+
+.request-button {
+  align-self: flex-end;
+  margin: 2em;
+}

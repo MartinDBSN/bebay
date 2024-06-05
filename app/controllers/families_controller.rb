@@ -1,10 +1,11 @@
 class FamiliesController < ApplicationController
   def index
     @families = User.all
+    #index method to adapt when doing the dates query part.
     @location = params[:location]
     @activity = params[:activity]
     @date = params[:date]
-#index method to adapt when doing the dates query part.
+    #index method to adapt when doing the dates query part.
     if params.present?
       sql_subquery = "activity ILIKE #{@activity}"
     #   <<~SQL
@@ -16,10 +17,9 @@ class FamiliesController < ApplicationController
     # #   @users = @users.joins(:available_dates).where(sql_subquery, query: "%#{params[:query]}%")
     end
   end
-
-    def show
-      @family = User.find(params[:id])
-      # @booking = Booking.new
-    end
-
+  
+  def show
+    @family = User.find(params[:id])
+    # @booking = Booking.new
+  end
 end

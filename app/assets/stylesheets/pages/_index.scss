@@ -1,2 +1,23 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.families-container {
+  display: flex;
+  justify-content: center;
+}
+
+.family-cards-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.criteria-checkboxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: rgb(206, 206, 206);
+  padding: 1em;
+  margin: 0.5em;
+}
