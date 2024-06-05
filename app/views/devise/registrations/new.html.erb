@@ -15,6 +15,16 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :family_name,
+                required: true,
+                autofocus: true %>
+    <%= f.input :home_address,
+                required: true,
+                autofocus: true %>
+    <%= f.input :presentation,
+                required: true,
+                autofocus: true,
+                placeholder: "Briefly introduce your family to other Bebay users !" %>
   </div>
 
   <div class="form-actions">
