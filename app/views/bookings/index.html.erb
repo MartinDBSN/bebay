@@ -1,0 +1,38 @@
+<div class="pages container">
+  <div class="1-my-family-container">
+  <h1><strong>My family</strong></h1>
+    <div class="a-family-image-container">
+      <h1><%= @family.family_name %></h1>
+      <img src="https://lh3.googleusercontent.com/9SnAwnXKWV0vglSkD-dWkoY1_lKfCMxxsa9tfEpTS5LKgJYCJgxiT3TZ3sGLLIeRRzU5JIiZ42DNRLg8QKRbiKe1jlU5PRG5IMQ3zLFIIQNR7LRcCpAgG5ka7q552rw2cs-h5_NfaEPgcSP07X10-g">
+    </div>
+    <h2>Children</h2>
+    <div class="b-family-children-container">
+      <% @children.each do |child| %>
+        <h5><%= child.name %></h5>
+      <% end %>
+    </div>
+    <h2>Description</h2>
+    <div class="c-family-description-container">
+      <p>In the heart of a cozy home, laughter dances through the air like confetti as the Smith family gathers around the dinner table. Parents, John and Emily, share warm smiles as they recount tales of their day, their love evident in the gentle touches and shared glances exchanged between them. Their children, Sarah and David, playfully banter, their bond woven tight with shared secrets and unspoken understanding. In this haven of love and acceptance, every hug is a sanctuary, every shared meal a celebration, and every bedtime story a cherished tradition. Together, they weather life's storms with unwavering support and emerge stronger, their love a beacon of warmth in a world of uncertainty</p>
+    </div>
+  </div>
+  <div class="2-request-history-container">
+    <h1><strong>Dashboard</strong></h1>
+    <h4>Requests</h4>
+    <div class="a-requests">
+    </div>
+    <h4>History</h4>
+    <div class="b-history">
+    </div>
+  </div>
+  <div class="3-bookings-availabilities-container">
+    <h4>They babysit for me</h4>
+    <div class="a-bookings-for-them">
+    </div>
+    <h4>I babysit for them</h4>
+    <div class="b-bookings-for-them">
+    <h4>Availabilities</h4>
+    <div class="c-availabilities">
+    </div>
+  </div>
+</div>
