@@ -1,12 +1,12 @@
-User.destroy_all
-Child.destroy_all
 AvailableDate.destroy_all
+Child.destroy_all
+User.destroy_all
 
 puts "Creating Users and their Family..."
 
 kenta = User.create(email: "kenta@test.com", password: "123456", family_name: "Merry", home_address: "Avenue Street, 50, 1000 Brussels", presentation: "Welcome to the Merry's, a fun and happy family of 4. We love playing (video) games together, trying out new sports and eating rocks ! Haha it's a joke. But imagine...", point_count: 100)
 hugo = User.create(email: "hugo@test.com", password: "123456", family_name: "Nieuwenhuyse", home_address: "Avenue Street, 50, 1000 Brussels", presentation: "Good day fellow Bebayers, we are the Nieuwenhuyse's ! Don't be shy, we are always happy to meet new families and organize awesome creative workshops or excursions whenever we feel like it !", point_count: 100)
-martin = User.create(email: "martin@test.com", password: "123456", family_name: "Dubuisson", home_address: "Avenue Street, 50, 1000 Brussels", presentation: "Hi there, we are the Dubuisson Fam and we are very precious about our Movie Friday tradition ! If you ever join, we will make sure to have enough popcorn for everyone ;)", point_count: 100)
+martin = User.create(email: "martin@test.com", password: "123456", family_name: "Dubuisson", home_address: "Rue franklin 61, 1000 Brussels", presentation: "Hi there, we are the Dubuisson Fam and we are very precious about our Movie Friday tradition ! If you ever join, we will make sure to have enough popcorn for everyone ;)", point_count: 100)
 pedro = User.create(email: "pedro@test.com", password: "123456", family_name: "Pan", home_address: "Avenue Street, 50, 1000 Brussels", presentation: "Hello beautiful peeps. Beware, no drama or sadness allowed in the Pan's House, only smiles xP.", point_count: 100)
 mathieu = User.create(email: "mathieu@test.com", password: "123456", family_name: "Heynen", home_address: "Avenue Street, 50, 1000 Brussels", presentation: "Bonjour everyone, we have a wonderful room full of mangas. Come read our mangas. Please. Like, really.", point_count: 100)
 
@@ -27,5 +27,9 @@ testdate1 = AvailableDate.create!(start_date: "2024-06-19 12:00", end_date: "202
 testdate2 = AvailableDate.create!(start_date: "2024-06-20 13:00", end_date: "2024-06-20 19:00", category: "Babysitting", user: User.first)
 testdate3 = AvailableDate.create!(start_date: "2024-07-01 16:30", end_date: "2024-07-01 19:30", category: "Pick up at school", user: User.last)
 testdate4 = AvailableDate.create!(start_date: "2024-07-05 19:30", end_date: "2024-07-05 23:30", category: "Babysitting", user: User.last)
+testdate5 = AvailableDate.create!(start_date: "2024-06-05 19:30", end_date: "2024-07-28 23:30", category: "Babysitting", user_id: User.first.id+2)
+testdate6 = AvailableDate.create!(start_date: "2024-06-05 19:30", end_date: "2024-07-28 23:30", category: "Pick up at school", user_id: User.first.id+2)
+testdate7 = AvailableDate.create!(start_date: "2024-06-05 19:30", end_date: "2024-07-28 23:30", category: "Babysitting", user_id: User.first.id+3)
+testdate8 = AvailableDate.create!(start_date: "2024-06-05 19:30", end_date: "2024-07-28 23:30", category: "Babysitting", user_id: User.first.id+4)
 
 puts "Created #{AvailableDate.count} availabilities !"
