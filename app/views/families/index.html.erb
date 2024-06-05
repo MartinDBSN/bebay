@@ -2,11 +2,17 @@
   <div class='header-banner'>
     <h1>Browse families</h1>
   </div>
-  <div class="search-bar">
-    <%= form_with url: families_path, method: :get, class: "d-flex" do%>
-    <%= text_field_tag :query, params[:query], style: "width:69vw;border-radius:15px;background-color:#1B1B1B;border-color:#D9D9D6;", class: "placeholder-grey rounded form-control", placeholder: "Type a keyword" %>
-    <%= submit_tag "Search", name:"" %>
+ <div class="home-form" data-controller="search">
+    <%= form_with url: families_path, method: :get do |f| %>
+        <%= f.select :activity, [['Babysitting'],['Pick up at school']] %>
+        <%= f.text_field :location, placeholder: "Enter your address" %>
+        <%= f.text_field :date, placeholder: "Pick a date & time",
+            data: {
+            controller: "datepicker"}
+        %>
+      <%= f.submit value: "Search" %>
     <% end %>
+    <%# <button class="button-primary">Search</button> %>
   </div>
   <div class="families-container">
     <div class="family-index-left-pane col-lg-3">
