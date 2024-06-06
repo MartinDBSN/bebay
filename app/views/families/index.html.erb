@@ -31,8 +31,7 @@
           <%= link_to family_path(family) do%>
           <div class="family-card-content">
             <h3><%= family.family_name %></h3>
-            <img src="https://lh3.googleusercontent.com/9SnAwnXKWV0vglSkD-dWkoY1_lKfCMxxsa9tfEpTS5LKgJYCJgxiT3TZ3sGLLIeRRzU5JIiZ42DNRLg8QKRbiKe1jlU5PRG5IMQ3zLFIIQNR7LRcCpAgG5ka7q552rw2cs-h5_NfaEPgcSP07X10-g">
-            <%#= cl_image_tag family.photo.key, height: 160, crop: :fill %>
+            <%= cl_image_tag family.family_photo.key, height: 300, width: 400, crop: :fill %>
             <h5><%= family.home_address %></h5>
           </div>
         </div>
