@@ -1,0 +1,54 @@
+.page-container-dashboard {
+  display: flex;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.container-family-dashboard {
+  display: left;
+  flex-direction: column;
+  justify-content: left;
+  border-radius: 14px;
+  max-width: 26%;
+  min-width: 315px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: #A396EC;
+  padding: 1em;
+}
+
+.container-family-dashboard img {
+  max-width: 60%;
+  min-width: 300px;
+}
+
+.container-family-dashboard-children {
+  display: flex;
+  justify-content: center;
+}
+
+.big-container-dashboard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(223, 0, 0);
+  flex-grow: 1;
+}
+
+
+.dashboard {
+  display: flex;
+  border: 1px solid rgb(0, 0, 0);
+  flex-grow: 1;
+}
+
+.requesthistory-container, .bookingsavailabilities-container {
+  display: left;
+  flex-direction: column;
+  justify-content: left;
+  flex-grow: 1;
+  max-width: 50%;
+  background-color: #d3d3d3;
+  padding: 1em;
+}
+
+.bookingsavailabilities-container {
+  border-left: 1px solid rgb(0, 0, 0);
+}
