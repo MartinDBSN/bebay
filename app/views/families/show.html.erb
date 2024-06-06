@@ -1,13 +1,16 @@
+
 <div class = "page-container">
   <div class = "family-container">
     <%# <%= cl_image_tag @family.photo.key, width: 400, crop: :fill %>
     <div class="family-container-photo-title">
-      <h1><%= @family.family_name %></h1>
+      <h1><%= @family.family_name%> family</h1>
       <img src="https://lh3.googleusercontent.com/9SnAwnXKWV0vglSkD-dWkoY1_lKfCMxxsa9tfEpTS5LKgJYCJgxiT3TZ3sGLLIeRRzU5JIiZ42DNRLg8QKRbiKe1jlU5PRG5IMQ3zLFIIQNR7LRcCpAgG5ka7q552rw2cs-h5_NfaEPgcSP07X10-g">
     </div>
     <div class="family-container-text-button">
       <div class="family-description">
+        <h3>Children:</h3>
         <p><%= @family.children.name %></p>
+        <hr>
         <p>In the heart of a cozy home, laughter dances through the air like confetti as the Smith family gathers around the dinner table. Parents, John and Emily, share warm smiles as they recount tales of their day, their love evident in the gentle touches and shared glances exchanged between them. Their children, Sarah and David, playfully banter, their bond woven tight with shared secrets and unspoken understanding. In this haven of love and acceptance, every hug is a sanctuary, every shared meal a celebration, and every bedtime story a cherished tradition. Together, they weather life's storms with unwavering support and emerge stronger, their love a beacon of warmth in a world of uncertainty</p>
       </div>
       <div class="family-availabilities">
@@ -25,7 +28,13 @@
         <%# </div> %>
         </div>
       </div>
-      <button data-action="click->toggle#fire" class="request-button">Send a request</button>
+      <%= simple_form_for [@booking ] do |f| %>
+        <%= f.hidden_field :date, value: params[:date] %>
+        <%= f.hidden_field :activity, value: params[:activity] %>
+        <%= f.select :child_id, @children.collect { |child| [child.name, child.id]}, prompt: "Select a child" %>
+        <%= f.submit%>
+      <% end %>
+      <%# <button data-action="click->toggle#fire" class="request-button">Send a request</button> %>
     </div>
   </div>
 </div>

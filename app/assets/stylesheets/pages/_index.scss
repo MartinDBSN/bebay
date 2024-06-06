@@ -1,8 +1,10 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "show";
+@import "new";
 @import "users_dashboard";
 
-.families-container {
+/* .families-container {
   display: flex;
   justify-content: center;
 }
@@ -22,3 +24,4 @@
   padding: 1em;
   margin: 0.5em;
 }
+ */

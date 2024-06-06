@@ -28,7 +28,7 @@
       <% if @families.any? %>
         <% @families.each do |family| %>
         <div class="family-card">
-          <%= link_to family_path(family) do%>
+          <%= link_to family_path(family, date: params[:date], activity: params[:activity]) do %>
           <div class="family-card-content">
             <h3><%= family.family_name %></h3>
             <img src="https://lh3.googleusercontent.com/9SnAwnXKWV0vglSkD-dWkoY1_lKfCMxxsa9tfEpTS5LKgJYCJgxiT3TZ3sGLLIeRRzU5JIiZ42DNRLg8QKRbiKe1jlU5PRG5IMQ3zLFIIQNR7LRcCpAgG5ka7q552rw2cs-h5_NfaEPgcSP07X10-g">
