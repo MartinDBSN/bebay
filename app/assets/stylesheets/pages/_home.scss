@@ -1,6 +1,28 @@
+body {
+  background-color: $lightbeige;
+  background-image: url('./group-9.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  height: 100vh;
+}
+
+#color-span {
+    display: inline;
+    background-image: url('./frame.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 5px 8px;
+    // border-radius: 5px;
+    white-space: nowrap;
+}
+
 .home-container {
   width: 80%;
   margin: auto;
+  text-align: center;
+
 
 }
 
@@ -9,21 +31,44 @@
 }
 
 .home-title h1 {
-  font-size: 3em;
+  font-size: 5em;
+  font-family: 'PPRader-Regular';
 }
+
+.home-title p {
+  font-size: 2em;
+  font-family: "Syne-Medium";
+}
+
 
 .home-form {
   text-align: center;
-  background-color: lightblue;
   padding: 30px;
   border-radius: 15px;
 }
 
-.home-form-field{
-
-  width: 30%;
+.form-field{
+  border-radius: 10px;
+  font-family: 'Syne-Medium';
+  border: 2px solid black;
+  padding: 10px 15px;
+  margin: 0px 5px;
+  font-weight: bold;
 }
 
+.form-button{
+  background-color: $kentablue;
+  padding: 10px 40px;
+  border-radius: 10px;
+  border-color:$kentablue;
+  font-family: 'Syne-Medium';
+  font-weight: bold;
+
+}
+
+.form-button:hover{
+  opacity: 50%;
+}
 .home-cards-container {
   display: flex;
   justify-content: center;

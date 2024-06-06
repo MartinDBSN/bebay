@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $lightbeige;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +8,38 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 70%;
+}
+
+.sign-up{
+  background-color: $kentablue;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border-color:$kentablue;
+  font-family: 'Syne-Medium';
+  margin: 0px 5px;
+}
+
+.sign-in{
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-family: 'Syne-Medium';
+  margin: 0px 5px;
+}
+
+.sign-in:hover{
+  opacity: 50%;
+}
+
+.sign-up:hover{
+  opacity: 50%;
+}
+
+hr {
+  width: 90%;
+  margin:auto;
+  height: 3px;
+  color: black;
+  background-color: black;
 }

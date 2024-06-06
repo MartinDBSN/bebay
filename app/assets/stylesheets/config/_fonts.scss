@@ -14,3 +14,12 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 //        font-url('FontFile.ttf') format('truetype')
 // }
 // $my-font: "Font Name";
+@font-face{
+  font-family: "PPRader-Regular";
+  src: url('PPRader-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "Syne-Medium";
+  src: url('Syne-Medium.ttf') format('opentype');
+}

@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
     @family = current_user
     @children = @family.children
+    @availabilities = current_user.available_dates
   end
 
   def create
