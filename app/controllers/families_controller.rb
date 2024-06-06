@@ -1,4 +1,5 @@
 class FamiliesController < ApplicationController
+
   def index
     @families = []
     @location = User.near("#{params[:location]} brussels", 20)
@@ -32,5 +33,8 @@ class FamiliesController < ApplicationController
   def show
     @family = User.find(params[:id])
     @booking = Booking.new
+    @date = params[:date]
+    @activity = params[:activity]
+    @children = current_user.children
   end
 end
