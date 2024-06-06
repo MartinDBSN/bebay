@@ -33,4 +33,8 @@ class FamiliesController < ApplicationController
     @family = User.find(params[:id])
     @booking = Booking.new
   end
+
+  def edit
+
+  end
 end

@@ -21,7 +21,19 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-  </div>
+    <%= f.input :family_name,
+                hint: "leave it blank if you don't want to change it",
+                required: true,
+                autofocus: true %>
+    <%= f.input :home_address,
+                hint: "leave it blank if you don't want to change it",
+                required: true,
+                autofocus: true %>
+    <%= f.input :presentation,
+                hint: "leave it blank if you don't want to change it",
+                required: true,
+                autofocus: true %>
+</div>
 
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
