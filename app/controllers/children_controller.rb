@@ -6,10 +6,19 @@ class ChildrenController < ApplicationController
   def create
     @child = Child.new(child_params)
     @child.user = current_user
-    if @child.save
-      redirect_to dashboard_path
-    else
-      render :new, status: :unprocessable_entity, notice: "Sorry, we couldn't register your child. Make sure you filled the form correctly!"
+    if params[:commit] == 'Save and register another child'
+      if @child.save
+        flash[:notice] = "Child successfully registrated!"
+        redirect_to new_child_path
+      else
+        render :new, status: :unprocessable_entity, notice: "Sorry, we couldn't register your child. Please try again!"
+      end
+    elsif params[:commit] == 'Save and checkout'
+      if @child.save
+        redirect_to dashboard_path
+      else
+        render :new, status: :unprocessable_entity, notice: "Sorry, we couldn't register your child. Please try again!"
+      end
     end
   end
 
