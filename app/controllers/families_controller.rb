@@ -37,4 +37,8 @@ class FamiliesController < ApplicationController
     @activity = params[:activity]
     @children = current_user.children
   end
+
+  def edit
+
+  end
 end
