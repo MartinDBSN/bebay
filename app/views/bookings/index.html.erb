@@ -6,12 +6,15 @@
     <h1><strong>My family</strong></h1>
     <div>
       <h1><%= @family.family_name %></h1>
-      <img src="https://lh3.googleusercontent.com/9SnAwnXKWV0vglSkD-dWkoY1_lKfCMxxsa9tfEpTS5LKgJYCJgxiT3TZ3sGLLIeRRzU5JIiZ42DNRLg8QKRbiKe1jlU5PRG5IMQ3zLFIIQNR7LRcCpAgG5ka7q552rw2cs-h5_NfaEPgcSP07X10-g">
+      <%= cl_image_tag @family.family_photo.key, height: 300, width: 400, crop: :fill %>
     </div>
     <h2>Children</h2>
     <div class="container-family-dashboard-children">
       <% @children.each do |child| %>
         <h5><%= child.name %></h5>
+        <% if child.child_photo.present? %>
+          <%= cl_image_tag child.child_photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
       <% end %>
     </div>
     <h2>Description</h2>
