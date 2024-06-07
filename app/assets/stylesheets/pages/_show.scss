@@ -3,15 +3,17 @@
   border: 1px solid rgb(0, 0, 0);
   border-radius: 10px;
   background-color: $kentablue;
+  width: 50%;
+  margin:auto;
 }
 
 .family-container-photo-title {
   margin: 2em;
 }
 
-.family-container-photo-title p{
+.family-p{
 font-family: "Syne-Medium";
-font-size: 1em;
+font-size: 2em;
 }
 
 .family-container-photo-title h1{
@@ -33,7 +35,45 @@ font-size: 1em;
   margin: 2em;
 }
 
+#submit-button{
+    background-color: #F0C148;
+    padding: 10px 40px;
+    border-radius: 10px;
+    border-color:$kentablue;
+    font-family: 'Syne-Medium';
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.form-field{
+  border-radius: 10px;
+  font-family: 'Syne-Medium';
+  border: 2px solid black;
+  padding: 10px 15px;
+  margin: 10px;
+  font-weight: bold;
+
+}
+
+#submit-button:hover{
+  opacity:50%;
+}
+
+h3{
+  font-family: "PPRader-Regular";
+}
+
 .request-button {
   align-self: flex-end;
   margin: 2em;
+}
+
+.request-title {
+ font-family: "Syne-Medium";
+ font-size: 1.5em;
+ padding: 10px;
+}
+
+.child-name{
+  font-size: 1.5em;
 }

@@ -36,6 +36,7 @@ class FamiliesController < ApplicationController
     @date = params[:date]
     @activity = params[:activity]
     @children = current_user.children
+    @family_children = @family.children
   end
 
   def edit
