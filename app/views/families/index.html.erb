@@ -15,7 +15,7 @@
     <%# <button class="button-primary">Search</button> %>
   </div>
   <div class="families-container">
-    <div class="family-index-left-pane col-lg-3">
+    <%# <div class="family-index-left-pane col-lg-3">
       <h2>Refine Search</h2>
       <div class="criteria-checkboxes">
         <label><input type="checkbox" name="criteria1"> Criteria 1</label>
@@ -23,16 +23,18 @@
         <label><input type="checkbox" name="criteria3"> Criteria 3</label>
         <label><input type="checkbox" name="criteria3"> Criteria 4</label>
       </div>
-    </div>
+    </div> %>
     <div class="family-cards-container col-lg-9">
       <% if @families.any? %>
         <% @families.each do |family| %>
         <div class="family-card">
           <%= link_to family_path(family, date: params[:date], activity: params[:activity]) do %>
           <div class="family-card-content">
-            <h3><%= family.family_name %></h3>
             <%= cl_image_tag family.family_photo.key, height: 300, width: 400, crop: :fill %>
-            <h5><%= family.home_address %></h5>
+            <div class="family-card-info-container">
+              <h3><%= family.family_name %></h3>
+              <h5><%= family.children.count %></h5>
+            </div>
           </div>
         </div>
           <% end %>
