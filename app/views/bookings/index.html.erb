@@ -28,7 +28,9 @@
       </div>
       <div class="dashboard">
         <div class="requesthistory-container">
-          <h3>New requests</h3>
+        <div class="title-requests-availabilities">
+          <h3>Requests</h3>
+        </div>
         <div class="requests">
           <ul>
           <% @bookings.each do |booking|%>
@@ -49,9 +51,23 @@
               <li>History 2</li>
             </ul>
           </div> %>
+        <div class="title-requests-availabilities">
+          <h3>Availabilities</h3>
+        </div>
+          <div class="availabilities">
+            <ul>
+              <% @availabilities.each do |availability| %>
+              <div class="availability-design-line">
+                <li><%= availability.start_date.strftime("%Y/%m/%d") %> - <%= availability.end_date.strftime("%Y/%m/%d") %></li>
+              </div>
+              <% end %>
+            </ul>
+          </div>
         </div>
         <div class="bookingsavailabilities-container">
-          <h3>Waiting for answers:</h3>
+          <div class="bebaysit-title">
+            <h3>They bebaysit for me</h3>
+          </div>
           <div class="bookings-for-me">
             <ul>
               <% @my_bookings.each do |booking| %>
@@ -69,13 +85,8 @@
               <li>Booking 2</li>
             </ul>
           </div> %>
-          <h3>Availabilities</h3>
-          <div class="availabilities">
-            <ul>
-              <% @availabilities.each do |availability| %>
-                <li><%= availability.start_date.strftime("%Y/%m/%d") %> - <%= availability.end_date.strftime("%Y/%m/%d") %></li>
-              <% end %>
-            </ul>
+          <div class="bebaysit-title">
+            <h3>I bebaysit for them</h3>
           </div>
         </div>
       </div>

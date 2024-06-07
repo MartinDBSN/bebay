@@ -1,3 +1,4 @@
+Booking.destroy_all
 AvailableDate.destroy_all
 Child.destroy_all
 User.destroy_all

@@ -1,41 +1,46 @@
 .page-container-dashboard {
   display: flex;
-  border: 1px solid rgb(0, 0, 0);
+  flex: center;
 }
 
 .container-family-dashboard {
-  display: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
-  justify-content: left;
-  border-radius: 14px;
   max-width: 26%;
   min-width: 315px;
-  border: 1px solid rgb(0, 0, 0);
-  background-color: #A396EC;
+  background-color: #0283BE;
   padding: 1em;
 }
 
 .container-family-dashboard img {
   max-width: 60%;
   min-width: 300px;
+  border-radius: 20px;
+  margin: 20px;
+}
+
+.container-family-dashboard h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container-family-dashboard-children {
   display: flex;
-  justify-content: center;
+  justify-content: auto;
 }
 
 .big-container-dashboard {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgb(223, 0, 0);
   flex-grow: 1;
 }
 
 
 .dashboard {
   display: flex;
-  border: 1px solid rgb(0, 0, 0);
   flex-grow: 1;
 }
 
@@ -51,4 +56,47 @@
 
 .bookingsavailabilities-container {
   border-left: 1px solid rgb(0, 0, 0);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'PPRader-Regular';
+}
+
+.bebaysit-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F4C345;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.title-requests-availabilities {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F2A6A1;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.availability-design-line {
+  border-radius: 30px;
+  display: flex;
+  align-items: left;
+  list-style-type: none;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.availabilities {
+  padding: 10px;
+}
+
+.dashboard-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
