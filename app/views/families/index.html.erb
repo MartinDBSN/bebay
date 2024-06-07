@@ -2,15 +2,15 @@
   <div class='header-banner'>
     <h1>Browse families</h1>
   </div>
- <div class="home-form" data-controller="search">
+  <div class="home-form" data-controller="search">
     <%= form_with url: families_path, method: :get do |f| %>
-        <%= f.select :activity, [['Babysitting'],['Pick up at school']] %>
-        <%= f.text_field :location, placeholder: "Enter your address" %>
-        <%= f.text_field :date, placeholder: "Pick a date & time",
+        <%= f.select :activity, [['Babysitting'],['Pick up at school']], {}, class: "form-field" %>
+        <%= f.text_field :location, required: true, placeholder: "Enter your address", class: "form-field" %>
+        <%= f.text_field :date, required: true, placeholder: "Pick a date & time", class: "form-field",
             data: {
             controller: "datepicker"}
         %>
-      <%= f.submit value: "Search" %>
+      <%= f.submit value: "Search", class: "form-button" %>
     <% end %>
     <%# <button class="button-primary">Search</button> %>
   </div>
@@ -33,7 +33,7 @@
             <%= cl_image_tag family.family_photo.key, height: 300, width: 400, crop: :fill %>
             <div class="family-card-info-container">
               <h3><%= family.family_name %></h3>
-              <h5><%= family.children.count %></h5>
+              <h5>🧒<%= family.children.count %></h5>
             </div>
           </div>
         </div>
