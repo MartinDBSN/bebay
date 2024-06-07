@@ -7,6 +7,7 @@
   margin:auto;
 }
 
+
 .family-container-photo-title {
   margin: 2em;
 }
@@ -76,4 +77,14 @@ h3{
 
 .child-name{
   font-size: 1.5em;
+}
+
+.log-in-button {
+  background-color: #F0C148;
+  padding: 5px 15px;
+  border-radius: 10px;
+}
+.log-in-button:hover {
+  background-color: #F0C148;
+  opacity: 50%;
 }
