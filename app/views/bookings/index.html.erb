@@ -28,8 +28,15 @@
           <h4>Requests</h4>
         <div class="requests">
           <ul>
-            <li>Request 1</li>
-            <li>Request 2</li>
+          <% @bookings.each do |booking|%>
+            <li>
+              Family: <%= booking.user.family_name %>
+              <br>
+              Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
+              <br>
+              <%= booking.child.name %>
+            </li>
+          <% end %>
           </ul>
         </div>
         <h4>History</h4>
@@ -58,8 +65,9 @@
           <h4>Availabilities</h4>
           <div class="availabilities">
             <ul>
-              <li>Availability 1</li>
-              <li>Availability 2</li>
+              <% @availabilities.each do |availability| %>
+                <li><%= availability.start_date.strftime("%Y/%m/%d") %> - <%= availability.end_date.strftime("%Y/%m/%d") %></li>
+              <% end %>
             </ul>
           </div>
         </div>

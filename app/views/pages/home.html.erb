@@ -1,23 +1,24 @@
 <div class="home-container">
   <div class="home-title">
     <h1>Welcome to Bebay!</h1>
-    <p>Your childcare platform</p>
+    <p><%= image_tag "blue_star.svg"%>
+    Your <span id="color-span">childcare</span> platform</p>
   </div>
 
   <div class="home-form" data-controller="search">
     <%= form_with url: families_path, method: :get do |f| %>
-        <%= f.select :activity, [['Babysitting'],['Pick up at school']] %>
-        <%= f.text_field :location, required: true, placeholder: "Enter your address" %>
-        <%= f.text_field :date, required: true, placeholder: "Pick a date & time",
+        <%= f.select :activity, [['Babysitting'],['Pick up at school']], {}, class: "form-field" %>
+        <%= f.text_field :location, required: true, placeholder: "Enter your address", class: "form-field" %>
+        <%= f.text_field :date, required: true, placeholder: "Pick a date & time", class: "form-field",
             data: {
             controller: "datepicker"}
         %>
-      <%= f.submit value: "Search" %>
+      <%= f.submit value: "Search", class: "form-button" %>
     <% end %>
     <%# <button class="button-primary">Search</button> %>
   </div>
 
-  <div class="home-cards-container">
+  <%# <div class="home-cards-container">
     <div class="home-card">
       <h2>Evening babysitting</h2>
       <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, </p>
@@ -30,5 +31,5 @@
       <h2>Child day care</h2>
       <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, </p>
     </div>
-  </div>
+  </div> %>
 </div>
