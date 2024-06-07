@@ -27,6 +27,7 @@
     <div class="family-cards-container col-lg-9">
       <% if @families.any? %>
         <% @families.each do |family| %>
+        <% if family.family_name != current_user.family_name %>
         <div class="family-card">
           <%= link_to family_path(family, date: params[:date], activity: params[:activity]) do %>
           <div class="family-card-content">
@@ -37,6 +38,7 @@
             </div>
           </div>
         </div>
+        <% end %>
           <% end %>
           <% end %>
         </div>
