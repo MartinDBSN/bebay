@@ -1,6 +1,6 @@
 
   <div class = "family-container">
-    <%# <%= cl_image_tag @family.photo.key, width: 400, crop: :fill %>
+    <%= cl_image_tag @family.family_photo.key, height: 300, width: 400, crop: :fill %>
     <div class="family-container-photo-title">
       <p>Family</p>
       <h1 class="show-family-title"><%= @family.family_name%></h1>

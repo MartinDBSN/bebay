@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates :family_name, :home_address, :presentation, presence: true
   has_many :children, dependent: :destroy
-  
+
   has_many :available_dates
   has_many :bookings, dependent: :destroy
 
@@ -14,4 +14,5 @@ class User < ApplicationRecord
   after_validation :geocode, if:
   :will_save_change_to_home_address?
 
+  has_one_attached :family_photo
 end

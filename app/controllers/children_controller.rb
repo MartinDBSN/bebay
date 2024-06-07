@@ -25,6 +25,6 @@ class ChildrenController < ApplicationController
   private
 
   def child_params
-    params.require(:child).permit(:name, :gender, :birthday, :child_comment)
+    params.require(:child).permit(:name, :gender, :birthday, :child_comment, :child_photo)
   end
 end
