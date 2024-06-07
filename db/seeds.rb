@@ -5,27 +5,27 @@ User.destroy_all
 puts "Creating Users and their Family..."
 
 kenta = User.new(email: "kenta@test.com", password: "123456", family_name: "Merry", home_address: "Rue de la loi, 17, 1000 Brussels", presentation: "Welcome to the Merry's, a fun and happy family of 4. We love playing (video) games together, trying out new sports and eating rocks ! Haha it's a joke. But imagine...", point_count: 100)
-image = URI.open("https://image.jeuxvideo.com/images-sm/p2/m/o/mohfp20f.jpg")
+image = URI.open("https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 kenta.family_photo.attach(io: image, filename: "#{kenta.family_name}.jpg")
 kenta.save
 
 hugo = User.create(email: "hugo@test.com", password: "123456", family_name: "Nieuwenhuyse", home_address: "Cantersteen, 2, 1000 Brussels", presentation: "Good day fellow Bebayers, we are the Nieuwenhuyse's ! Don't be shy, we are always happy to meet new families and organize awesome creative workshops or excursions whenever we feel like it !", point_count: 100)
-image = URI.open("https://m.media-amazon.com/images/I/71X5SqK1ZeS._AC_UF1000,1000_QL80_.jpg")
+image = URI.open("https://images.unsplash.com/photo-1643818657367-491080baeece?q=80&w=3774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 hugo.family_photo.attach(io: image, filename: "#{hugo.family_name}.jpg")
 hugo.save
 
 martin = User.create(email: "martin@test.com", password: "123456", family_name: "Dubuisson", home_address: "Rue franklin 61, 1000 Brussels", presentation: "Hi there, we are the Dubuisson Fam and we are very precious about our Movie Friday tradition ! If you ever join, we will make sure to have enough popcorn for everyone ;)", point_count: 100)
-image = URI.open("https://upload.wikimedia.org/wikipedia/en/d/d1/Call_of_Duty_2_Box.jpg")
+image = URI.open("https://images.unsplash.com/photo-1611024847487-e26177381a3f?q=80&w=3648&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 martin.family_photo.attach(io: image, filename: "#{martin.family_name}.jpg")
 martin.save
 
 pedro = User.create(email: "pedro@test.com", password: "123456", family_name: "Pan", home_address: "rue du marché aux herbes, 116 1000 Brussels", presentation: "Hello beautiful peeps. Beware, no drama or sadness allowed in the Pan's House, only smiles xP.", point_count: 100)
-image = URI.open("https://media.s-bol.com/qON2J2vwLQ7/962x1200.jpg")
+image = URI.open("https://plus.unsplash.com/premium_photo-1664641558603-8222c498b311?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 pedro.family_photo.attach(io: image, filename: "#{pedro.family_name}.jpg")
 pedro.save
 
 mathieu = User.create(email: "mathieu@test.com", password: "123456", family_name: "Heynen", home_address: "Quick kraainem", presentation: "Bonjour everyone, we have a wonderful room full of mangas. Come read our mangas. Please. Like, really.", point_count: 100)
-image = URI.open("https://m.media-amazon.com/images/I/41vi80KPaWL._AC_SY780_.jpg")
+image = URI.open("https://plus.unsplash.com/premium_photo-1673507495900-c490b88019de?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 mathieu.family_photo.attach(io: image, filename: "#{mathieu.family_name}.jpg")
 mathieu.save
 
