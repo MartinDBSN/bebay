@@ -11,7 +11,7 @@
     <h2>Children</h2>
     <div class="container-family-dashboard-children">
       <% @children.each do |child| %>
-        <h5><%= child.name %></h5>
+        <p><%= child.name %></p>
       <% end %>
     </div>
     <h2>Description</h2>
@@ -25,7 +25,7 @@
       </div>
       <div class="dashboard">
         <div class="requesthistory-container">
-          <h4>Requests</h4>
+          <h3>New requests</h3>
         <div class="requests">
           <ul>
           <% @bookings.each do |booking|%>
@@ -39,30 +39,34 @@
           <% end %>
           </ul>
         </div>
-        <h4>History</h4>
+        <%# <h4>History</h4>
           <div class="history">
             <ul>
               <li>History 1</li>
               <li>History 2</li>
             </ul>
-          </div>
+          </div> %>
         </div>
         <div class="bookingsavailabilities-container">
-          <h4>They babysit for me</h4>
+          <h3>Waiting for answers:</h3>
           <div class="bookings-for-me">
             <ul>
-              <li>Booking 1</li>
-              <li>Booking 2</li>
+              <% @my_bookings.each do |booking| %>
+                <li>
+                  <h5>Family: <%= booking.user.family_name %></h5>
+                  <p>Date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %></p>
+                </li>
+              <% end %>
             </ul>
           </div>
-          <h4>I babysit for them</h4>
+          <%# <h4>I babysit for them</h4>
           <div class="bookings-for-them">
             <ul>
               <li>Booking 1</li>
               <li>Booking 2</li>
             </ul>
-          </div>
-          <h4>Availabilities</h4>
+          </div> %>
+          <h3>Availabilities</h3>
           <div class="availabilities">
             <ul>
               <% @availabilities.each do |availability| %>

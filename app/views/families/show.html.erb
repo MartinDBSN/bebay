@@ -1,11 +1,10 @@
 
-<div class = "page-container">
   <div class = "family-container">
     <%# <%= cl_image_tag @family.photo.key, width: 400, crop: :fill %>
     <div class="family-container-photo-title">
-      <h1><%= @family.family_name%> family</h1>
-      <img src="https://lh3.googleusercontent.com/9SnAwnXKWV0vglSkD-dWkoY1_lKfCMxxsa9tfEpTS5LKgJYCJgxiT3TZ3sGLLIeRRzU5JIiZ42DNRLg8QKRbiKe1jlU5PRG5IMQ3zLFIIQNR7LRcCpAgG5ka7q552rw2cs-h5_NfaEPgcSP07X10-g">
-    </div>
+      <p>Family</p>
+      <h1 class="show-family-title"><%= @family.family_name%></h1>
+      <%= cl_image_tag @family.family_photo.key, height: 300, width: 400, crop: :fill %>    </div>
     <div class="family-container-text-button">
       <div class="family-description">
         <h3>Children:</h3>
@@ -32,9 +31,8 @@
         <%= f.hidden_field :date, value: params[:date] %>
         <%= f.hidden_field :activity, value: params[:activity] %>
         <%= f.select :child_id, @children.collect { |child| [child.name, child.id]}, prompt: "Select a child" %>
-        <%= f.submit%>
+        <%= f.submit %>
       <% end %>
       <%# <button data-action="click->toggle#fire" class="request-button">Send a request</button> %>
     </div>
   </div>
-</div>

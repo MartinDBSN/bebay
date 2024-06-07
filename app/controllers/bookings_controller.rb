@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
     @family = current_user
     @children = @family.children
     @availabilities = current_user.available_dates
+    @my_bookings = current_user.bookings
   end
 
   def create
@@ -18,17 +19,6 @@ class BookingsController < ApplicationController
       redirect_to family_path(current_user), status: :unprocessable_entity, notice: "Impossible to book this family"
     end
   end
-
-  # def create
-  #   @family = User.find(params[:id])
-  #   @booking = Booking.new(bookings_params)
-  #   @game.user = current_user
-  #   if @booking.save
-  #     redirect_to family_path(@family)
-  #   else
-  #     render :new, status: :unprocessable_entity, notice: "hahaha"
-  #   end
-  # end
 
   private
 
