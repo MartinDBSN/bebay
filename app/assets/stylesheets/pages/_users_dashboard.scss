@@ -19,6 +19,7 @@
   min-width: 300px;
   border-radius: 20px;
   margin: 20px;
+  object-fit: cover;
 }
 
 .container-family-dashboard h1 {
@@ -32,6 +33,10 @@
   justify-content: auto;
 }
 
+.child-little {
+  padding: 10px;
+}
+
 .big-container-dashboard {
   display: flex;
   flex-direction: column;
@@ -42,6 +47,7 @@
 .dashboard {
   display: flex;
   flex-grow: 1;
+  background-color: #F2EFEA;
 }
 
 .requesthistory-container, .bookingsavailabilities-container {
@@ -50,8 +56,7 @@
   justify-content: left;
   flex-grow: 1;
   max-width: 50%;
-  background-color: #d3d3d3;
-  padding: 1em;
+  padding: 1em 2em;
 }
 
 .bookingsavailabilities-container {
@@ -88,6 +93,8 @@ h1, h2, h3, h4, h5 {
   padding: 5px;
   margin: 5px;
   border: 1px solid rgb(0, 0, 0);
+  background-color: #F2EFEA;
+  padding-left: 20px;
 }
 
 .availabilities {

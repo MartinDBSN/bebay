@@ -11,9 +11,9 @@
     <h2>Children</h2>
     <div class="container-family-dashboard-children">
       <% @children.each do |child| %>
-        <h5><%= child.name %></h5>
+        <h5 class="child-little"><%= child.name %></h5>
         <% if child.child_photo.present? %>
-          <%= cl_image_tag child.child_photo.key, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag child.child_photo.key, width: 100, height:100, crop: :fill, radius: "max", fetch_format: "auto" %>
         <% end %>
       <% end %>
     </div>
