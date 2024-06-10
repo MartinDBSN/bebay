@@ -1,12 +1,28 @@
 .family-container {
+  display: flex;
   margin: 3em 5em;
   border: 1px solid rgb(0, 0, 0);
   border-radius: 10px;
   background-color: $kentablue;
-  width: 50%;
+  width: 60%;
   margin:auto;
 }
 
+.family-description {
+  object-fit: cover;
+}
+
+.img-container {
+  min-width: 20%;
+}
+
+.img-container img {
+  border-radius: 25px;
+  margin: 20px;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
 
 .family-container-photo-title {
   margin: 2em;
