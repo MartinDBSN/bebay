@@ -21,7 +21,6 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to edit_booking_path(@booking)
     else
-      raise
       # @children_pool = @booking.children_pool
       redirect_to family_path(current_user), status: :unprocessable_entity, notice: "Impossible to book this family"
     end
