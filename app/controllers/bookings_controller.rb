@@ -21,7 +21,6 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to edit_booking_path(@booking)
     else
-      raise
       # @children_pool = @booking.children_pool
       redirect_to family_path(current_user), status: :unprocessable_entity, notice: "Impossible to book this family"
     end
@@ -47,6 +46,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :category)
+    params.require(:booking).permit(:start_date, :category, child_ids: [])
   end
 end

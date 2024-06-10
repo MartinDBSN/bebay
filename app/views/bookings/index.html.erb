@@ -35,7 +35,9 @@
               <br>
               Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
               <br>
-              <%= booking.child.name %>
+              <% booking.children.each do |child| %>
+                <%= child.name %>
+              <% end %>
             </li>
           <% end %>
           </ul>
