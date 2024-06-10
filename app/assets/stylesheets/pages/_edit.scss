@@ -1,0 +1,16 @@
+.request-container{
+  width: 70%;
+  padding: 20px;
+  background-color: $kentablue;
+  display: flex;
+  justify-content: space-around;
+}
+
+.request-container h1{
+  font-size: 3em;
+  margin-top: 0;
+}
+
+.request-infos h2{
+  padding: 10px 0px;
+}
