@@ -15,13 +15,13 @@ class Booking < ApplicationRecord
 
   def dates_cannot_overlap
     @bookings = Booking.all.where(user: user)
+    @availabilities = AvailableDate.all.where(user: user)
+
     is_overlapping = @bookings.any? do |booking|
-      if (booking.start_date > start_date) && (booking.end_date > end_date)
-        return false
-      elsif (booking.start_date < start_date) && (booking.end_date < end_date)
-       return false
-      else
+      if booking.start_date.day != start_date.day
         return true
+      else
+        return false
       end
     end
     errors.add(:overlaps_with_other) if is_overlapping
