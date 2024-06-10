@@ -1,12 +1,11 @@
 <div class="page-container-dashboard ">
   <div class="container-family-dashboard">
     <%= link_to edit_user_registration_path, class: 'edit-button' do %>
-    <button>Edit family data</button>
     <% end %>
-    <h1><strong>My family</strong></h1>
     <div>
-      <h1><%= @family.family_name %></h1>
       <%= cl_image_tag @family.family_photo.key, height: 300, width: 400, crop: :fill %>
+      <h2><%= @family.family_name %></h2>
+    <button>Edit family data</button>
     </div>
     <h2>Children</h2>
     <div class="container-family-dashboard-children">
@@ -19,13 +18,10 @@
     </div>
     <h2>Description</h2>
     <div class="container-family-dashboard-description">
-      <p>In the heart of a cozy home, laughter dances through the air like confetti as the Smith family gathers around the dinner table. Parents, John and Emily, share warm smiles as they recount tales of their day, their love evident in the gentle touches and shared glances exchanged between them. Their children, Sarah and David, playfully banter, their bond woven tight with shared secrets and unspoken understanding. In this haven of love and acceptance, every hug is a sanctuary, every shared meal a celebration, and every bedtime story a cherished tradition. Together, they weather life's storms with unwavering support and emerge stronger, their love a beacon of warmth in a world of uncertainty</p>
+      <p><%= current_user.presentation %></p>
     </div>
   </div>
     <div class="big-container-dashboard">
-      <div class="dashboard-title">
-      <h1><strong>Dashboard</strong></h1>
-      </div>
       <div class="dashboard">
         <div class="requesthistory-container">
         <div class="title-requests-availabilities">
