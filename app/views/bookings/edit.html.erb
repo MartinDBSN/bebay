@@ -10,7 +10,7 @@
       <h2><strong>Activity type:</strong> <%= @booking.category  %></h2>
       <h2><strong><%= @booking.category %> date:</strong> <%= @booking.start_date.strftime("%Y/%m/%d - %I:%M%p")  %></h2>
       <%= simple_form_for @booking do |f| %>
-        <%= f.input :child_id, as: :check_boxes, collection: @children.map { |child| [child.name, child.id]}, input_html: { class: "form-field"} %>
+        <%= f.association :children, as: :check_boxes, input_html: { class: "form-field"} %>
         <%= f.submit :"Confirm your request", class: 'submit-button'%>
       <% end %>
     </div>
