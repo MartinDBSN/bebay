@@ -4,7 +4,7 @@ class Child < ApplicationRecord
   has_many :bookings, through: :children_pools
 
   validates :name, :birthday, presence: true
-  validates :child_comment, length: { maximum: 160 }, allow_blank: true
+  validates :child_comment, length: { maximum: 255 }, allow_blank: true
 
   has_one_attached :child_photo
 end

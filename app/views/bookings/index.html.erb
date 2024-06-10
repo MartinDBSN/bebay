@@ -1,22 +1,26 @@
-<div class="page-container-dashboard ">
+<div class="page-container-dashboard">
   <div class="container-family-dashboard">
-    <%= link_to edit_user_registration_path, class: 'edit-button' do %>
-    <% end %>
     <div>
-      <%= cl_image_tag @family.family_photo.key, height: 300, width: 400, crop: :fill %>
-      <h2><%= @family.family_name %></h2>
-    <button>Edit family data</button>
+      <%= cl_image_tag @family.family_photo.key, class: "family-photo", crop: :fill %>
+      <div class="family-edit">
+        <h2><%= @family.family_name %></h2>
+        <%= link_to edit_user_registration_path do %>
+          <%= image_tag "bebay_edit_btn.svg", class: "edit-family-btn" %>
+        <% end %>
+      </div>
     </div>
-    <h2>Children</h2>
+  <div class="separator"></div>
     <div class="container-family-dashboard-children">
       <% @children.each do |child| %>
-        <h5><%= child.name %></h5>
         <% if child.child_photo.present? %>
-          <%= cl_image_tag child.child_photo.key, height: 300, width: 400, crop: :fill %>
+          <div class="child-mini">
+            <%= cl_image_tag child.child_photo.key, class: "avatar" %>
+            <h5><%= child.name %></h5>
+          </div>
         <% end %>
       <% end %>
     </div>
-    <h2>Description</h2>
+    <div class="separator"></div>
     <div class="container-family-dashboard-description">
       <p><%= current_user.presentation %></p>
     </div>

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :family_name, :home_address, :presentation, presence: true
+  validates :presentation, length: { maximum: 255 }
   has_many :children, dependent: :destroy
 
   has_many :available_dates
