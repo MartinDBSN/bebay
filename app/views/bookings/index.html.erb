@@ -37,10 +37,10 @@
           <% @bookings.each do |booking|%>
             <li class="request-card-dashboard">
             <% if booking.welcome_family_id == current_user.id %>
-            <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"} do%>
+            <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"}, style: 'text-decoration:none;' do%>
               <i class="fa-solid fa-check"></i>
             <% end %>
-            <%= link_to booking_deny_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"} do%>
+            <%= link_to booking_path(booking), data: {turbo_method: "delete", turbo_confirm: "Are you sure?"} do%>
               <i class="fa-solid fa-x"></i>
             <% end %>
             <% end %>

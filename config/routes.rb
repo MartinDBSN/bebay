@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :bookings do
     patch :change_status_to_accepted, to: "bookings#change_status_to_accepted", as: :validate
-    patch :change_status_to_denied, to: "bookings#change_status_to_denied", as: :deny
+    # delete :destroy, to: "bookings#destroy", as: :destroy
 
   end
 
