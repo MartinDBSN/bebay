@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @children = @family.children
     @availabilities = current_user.available_dates
     @available_date = AvailableDate.new
-    @my_bookings = current_user.bookings
+    @my_bookings = current_user.bookings + Booking.where(welcome_family_id: current_user.id)
   end
 
   def new
