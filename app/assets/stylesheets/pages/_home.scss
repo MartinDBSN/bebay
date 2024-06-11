@@ -1,9 +1,5 @@
 body {
   background-color: $lightbeige;
-  background-image: url('./group-9.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom left;
   height: 100vh;
 }
 
@@ -18,21 +14,30 @@ body {
     white-space: nowrap;
 }
 
+.home-big-container {
+  background-image: url('./group-9.svg');
+  height: 90vh;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+}
+
 .home-container {
   width: 80%;
   margin: auto;
   text-align: center;
 
-
 }
 
 .home-title {
-  margin-top: 5em;
+
 }
 
 .home-title h1 {
-  font-size: 5em;
+  font-size: 6em;
   font-family: 'PPRader-Regular';
+  padding: 40px 0px;
+  margin: 0px;
 }
 
 .home-title p {

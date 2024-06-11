@@ -86,7 +86,7 @@
 
 .requesthistory-container, .bookingsavailabilities-container {
   display: left;
-  height: 80vh;
+  height: 79vh;
   flex-direction: column;
   justify-content: left;
   flex-grow: 1;
@@ -141,7 +141,7 @@
 .requests {
   height: 40%;
   border: 2px solid $kentablack;
-  border-radius: 30px;
+  border-radius: 20px;
   margin: 10px 0px;
   padding: 15px;
   overflow-y: auto;
@@ -154,9 +154,16 @@
 
 .request-card-dashboard {
   border: 2px solid $kentablack;
-  border-radius: 30px;
+  border-radius: 20px;
   margin: 10px 0px;
   padding: 15px;
+}
+
+.empty-subsection-placeholder {
+  font-family: "Syne-Medium";
+  font-style: italic;
+  text-align: center;
+  margin-top: 24%;
 }
 
 ::-webkit-scrollbar {

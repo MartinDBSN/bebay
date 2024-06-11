@@ -1,14 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $lightbeige;
+  height: 10vh;
+  border-bottom: 1.5px solid $kentablack;
+  margin: 0px 20px;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 70%;
+.navbar-brand img {
+  height: 60px;
 }
 
 .sign-up{
@@ -39,7 +42,7 @@
 hr {
   width: 90%;
   margin:auto;
-  height: 3px;
+  height: 1.5px;
   color: black;
   background-color: black;
 }
