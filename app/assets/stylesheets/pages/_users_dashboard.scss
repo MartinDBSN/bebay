@@ -7,7 +7,6 @@
 .container-family-dashboard {
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
   width: 30%;
   background-color: $kentablue;
@@ -68,6 +67,10 @@
 
 .child-mini {
   margin: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .big-container-dashboard {
@@ -83,6 +86,7 @@
 
 .requesthistory-container, .bookingsavailabilities-container {
   display: left;
+  height: 80vh;
   flex-direction: column;
   justify-content: left;
   flex-grow: 1;
@@ -132,4 +136,33 @@
   height: 1px;
   background-color: $lightbeige;
   margin: 10px;
+}
+
+.requests {
+  height: 40%;
+  border: 2px solid $kentablack;
+  border-radius: 30px;
+  margin: 10px 0px;
+  padding: 15px;
+  overflow-y: auto;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+}
+
+.request-card-dashboard {
+  border: 2px solid $kentablack;
+  border-radius: 30px;
+  margin: 10px 0px;
+  padding: 15px;
+}
+
+::-webkit-scrollbar {
+
+}
+
+::-webkit-scrollbar-thumb {
+
 }
