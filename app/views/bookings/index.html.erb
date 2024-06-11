@@ -36,10 +36,18 @@
           <% if @bookings.any? %>
           <% @bookings.each do |booking|%>
             <li class="request-card-dashboard">
+            <% if booking.welcome_family_id == current_user.id %>
+            <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"} do%>
+              <i class="fa-solid fa-check"></i>
+            <% end %>
+            <%= link_to booking_deny_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"} do%>
+              <i class="fa-solid fa-x"></i>
+            <% end %>
+            <% end %>
               <h5>
                 Family: <%= booking.user.family_name %>
               </h5>
-              <br>
+              <p>Comment:<%= booking.description %></p>
                 Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
               <br>
               <% booking.children.each do |child| %>
@@ -111,7 +119,7 @@
             <ul>
               <% if @bookings.where(welcome_family_id: current_user.id).any? %>
                 <% @bookings.each do |booking|%>
-                  <% if booking.welcome_family_id ==  current_user.id %>
+                  <% if booking.welcome_family_id ==  current_user.id && booking.status == "Confirmed" %>
                   <li class="request-card-dashboard">
                     <h5>
                       Family: <%= booking.user.family_name %>

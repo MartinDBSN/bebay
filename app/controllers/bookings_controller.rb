@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(
       start_date: params[:booking][:date],
       category: params[:booking][:activity],
+      description: params[:booking][:description],
       welcome_family_id: params[:booking][:welcome_family_id])
     @booking.user = current_user
     # @booking.children_pool = ChildrenPool.find(params[:user_id])
@@ -45,9 +46,23 @@ class BookingsController < ApplicationController
     end
   end
 
+  def change_status_to_accepted
+    @booking = Booking.find(params[:booking_id])
+    @booking.update(status: 'Confirmed')
+    @booking.save
+    redirect_to dashboard_path, notice: 'Booking was successfully confirmed'
+  end
+
+  def change_status_to_denied
+    @booking = Booking.find(params[:booking_id])
+    @booking.update(status: 'Denied')
+    @booking.save
+    redirect_to dashboard_path, notice: 'Booking was successfully denied'
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :category, :welcome_family_id, child_ids: [])
+    params.require(:booking).permit(:start_date, :category, :welcome_family_id, :description, child_ids: [])
   end
 end

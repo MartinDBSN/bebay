@@ -2,7 +2,6 @@
   <div class="request-textarea">
     <h1>Confirm your request</h1>
     <p>Describe your request</p>
-    <textarea class="mb-3 form-control" name="description" id="description" placeholder="Your text.."></textarea>
   </div>
   <div class="request-form">
     <div class="request-infos">
@@ -10,7 +9,8 @@
       <h2><strong>Activity type:</strong> <%= @booking.category  %></h2>
       <h2><strong><%= @booking.category %> date:</strong> <%= @booking.start_date.strftime("%Y/%m/%d - %I:%M%p")  %></h2>
       <%= simple_form_for @booking do |f| %>
-        <%= f.association :children, as: :check_boxes, input_html: { class: "form-field"} %>
+        <%= f.input :description, :as => :text %>
+        <%= f.association :children, as: :check_boxes, collection: @children, required: true %>
         <%= f.submit :"Confirm your request", class: 'submit-button'%>
       <% end %>
     </div>

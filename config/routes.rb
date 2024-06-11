@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :bookings
+  resources :bookings do
+    patch :change_status_to_accepted, to: "bookings#change_status_to_accepted", as: :validate
+    patch :change_status_to_denied, to: "bookings#change_status_to_denied", as: :deny
+
+  end
+
   resources :families
   resources :children, only: [:new, :create, :edit, :update, :destroy]
   resources :available_dates, only: [:new, :create, :edit, :update, :destroy]
