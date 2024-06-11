@@ -59,6 +59,11 @@ image = URI.open("https://images.unsplash.com/photo-1629783509182-68c8c190e952?q
 geneviève.child_photo.attach(io: image, filename: "#{geneviève.name}.jpg")
 geneviève.save
 
+valerie = Child.create!(name: "valerie", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Dubuisson"))
+image = URI.open("https://images.unsplash.com/photo-1594918794521-a0c01cdff8c0?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+valerie.child_photo.attach(io: image, filename: "#{valerie.name}.jpg")
+valerie.save
+
 puts "Created #{Child.count} children !"
 
 # Availabilities Creation
