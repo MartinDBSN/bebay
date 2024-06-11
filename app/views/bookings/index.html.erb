@@ -33,16 +33,22 @@
         </div>
         <div class="requests">
           <ul>
+          <% if @bookings.any? %>
           <% @bookings.each do |booking|%>
-            <li>
-              Family: <%= booking.user.family_name %>
+            <li class="request-card-dashboard">
+              <h5>
+                Family: <%= booking.user.family_name %>
+              </h5>
               <br>
-              Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
+                Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
               <br>
               <% booking.children.each do |child| %>
                 <%= child.name %>
               <% end %>
             </li>
+          <% end %>
+          <% else %>
+          <p>hello mec</p>
           <% end %>
           </ul>
         </div>
@@ -77,11 +83,17 @@
           </div>
           <div class="bookings-for-me">
             <ul>
+              <% if @bookings.where(user_id: current_user.id).any? %>
               <% @my_bookings.each do |booking| %>
+              <% if booking.user_id == current_user.id %>
                 <li>
                   <h5>Family: <%= booking.user.family_name %></h5>
                   <p>Date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %></p>
                 </li>
+                <% end %>
+              <% end %>
+              <% else %>
+              <p>hellooo</p>
               <% end %>
             </ul>
           </div>
@@ -94,6 +106,29 @@
           </div> %>
           <div class="bebaysit-title">
             <h3>I bebaysit for them</h3>
+          </div>
+          <div class="requests">
+            <ul>
+              <% if @bookings.where(welcome_family_id: current_user.id).any? %>
+                <% @bookings.each do |booking|%>
+                  <% if booking.welcome_family_id ==  current_user.id %>
+                  <li class="request-card-dashboard">
+                    <h5>
+                      Family: <%= booking.user.family_name %>
+                    </h5>
+                    <br>
+                      Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
+                    <br>
+                    <% booking.children.each do |child| %>
+                      <%= child.name %>
+                    <% end %>
+                  </li>
+                  <% end %>
+                <% end %>
+                <% else %>
+                <p>saluuuuuut</p>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>

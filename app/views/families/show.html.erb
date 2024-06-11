@@ -21,6 +21,7 @@
       <%= simple_form_for @booking do |f| %>
         <%= f.hidden_field :date, value: params[:date] %>
         <%= f.hidden_field :activity, value: params[:activity] %>
+        <%= f.hidden_field :welcome_family_id, value: params[:id] %>
         <%= f.submit :"Create your request", class: 'submit-button'%>
       <% end %>
       <%# <button data-action="click->toggle#fire" class="request-button">Send a request</button> %>
