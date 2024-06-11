@@ -17,6 +17,12 @@ class AvailableDatesController < ApplicationController
     end
   end
 
+  def destroy
+    @available_date = AvailableDate.find(params[:id])
+    @available_date.destroy
+    redirect_to bookings_path, notice: "Availability erased"
+  end
+
   private
 
   def available_date_params
