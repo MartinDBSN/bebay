@@ -117,9 +117,8 @@
           </div>
           <div class="requests">
             <ul>
-              <% if @bookings.where(welcome_family_id: current_user.id).any? %>
-                <% @bookings.each do |booking|%>
-                  <% if booking.welcome_family_id ==  current_user.id && booking.status == "Confirmed" %>
+              <% @bookings.each do |booking|%>
+                <% if @bookings.where(welcome_family_id: current_user.id).any? && booking.welcome_family_id ==  current_user.id && booking.status == "Confirmed" %>
                   <li class="request-card-dashboard">
                     <h5>
                       Family: <%= booking.user.family_name %>
@@ -131,10 +130,9 @@
                       <%= child.name %>
                     <% end %>
                   </li>
-                  <% end %>
-                <% end %>
                 <% else %>
-                <p class="empty-subsection-placeholder"> No scheduled bebaysittings </p>
+                  <p class="empty-subsection-placeholder"> No scheduled bebaysittings </p>
+                <% end %>
               <% end %>
             </ul>
           </div>
