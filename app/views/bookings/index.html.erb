@@ -105,7 +105,7 @@
           </div>
           <div class="requests">
             <ul>
-              <% if @bookings.where(user_id: current_user.id).any? %>
+              <% if @bookings.where(user_id: current_user.id, status: "Confirmed").any? %>
                 <% @my_bookings.each do |booking| %>
                 <% if booking.user_id == current_user.id && booking.status == "Confirmed" %>
                   <li class="request-card-dashboard">
