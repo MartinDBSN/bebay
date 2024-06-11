@@ -49,8 +49,16 @@ class BookingsController < ApplicationController
   def change_status_to_accepted
     @booking = Booking.find(params[:booking_id])
     @booking.update(status: 'Confirmed')
-    @booking.save
-    redirect_to dashboard_path, notice: 'Booking was successfully confirmed'
+    if @booking.save
+      @welcome_family_points = User.find(@booking.welcome_family_id)
+      @welcome_family_points.point_count += 10
+      @welcome_family_points.save
+      current_user.point_count -= 10
+      current_user.save
+      redirect_to dashboard_path, notice: 'Booking was successfully confirmed'
+    else
+      redirect_to dashboard_path, notice: "Impossible to finalise this booking"
+    end
   end
 
   def destroy
