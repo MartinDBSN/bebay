@@ -33,17 +33,20 @@
         </div>
         <div class="requests">
           <ul>
-          <% @bookings.each do |booking| %>
-            <% if @bookings.any? && booking.status != "Confirmed" %>
+          <% if @my_bookings.empty? || @my_bookings.all? {|booking| booking.status == "Confirmed"}%>
+            <p class="empty-subsection-placeholder"> No pending requests !</p>
+          <% end %>
+          <% @my_bookings.each do |booking| %>
+            <% if booking.status != "Confirmed" %>
               <li class="request-card-dashboard">
-            <% if booking.welcome_family_id == current_user.id %>
-            <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"}, style: 'text-decoration:none;' do%>
-              <i class="fa-solid fa-check"></i>
-            <% end %>
-            <%= link_to booking_path(booking), data: {turbo_method: "delete", turbo_confirm: "Are you sure?"} do%>
-              <i class="fa-solid fa-x"></i>
-            <% end %>
-            <% end %>
+              <% if booking.welcome_family_id == current_user.id %>
+                <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"}, style: 'text-decoration:none;' do%>
+                  <i class="fa-solid fa-check"></i>
+                <% end %>
+                <%= link_to booking_path(booking), data: {turbo_method: "delete", turbo_confirm: "Are you sure?"} do%>
+                  <i class="fa-solid fa-x"></i>
+                <% end %>
+              <% end %>
               <h5>
                 Family: <%= User.find(booking.welcome_family_id).family_name.capitalize %>
               </h5>
@@ -54,9 +57,7 @@
               <%= cl_image_tag child.child_photo.key, class: "avatar" %>
                 <%= child.name.capitalize %>
               <% end %>
-            </li>
-            <% else %>
-              <p class="empty-subsection-placeholder"> No pending requests !</p>
+              </li>
             <% end %>
           <% end %>
           </ul>
