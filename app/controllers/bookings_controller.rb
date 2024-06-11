@@ -53,11 +53,10 @@ class BookingsController < ApplicationController
     redirect_to dashboard_path, notice: 'Booking was successfully confirmed'
   end
 
-  def change_status_to_denied
-    @booking = Booking.find(params[:booking_id])
-    @booking.update(status: 'Denied')
-    @booking.save
-    redirect_to dashboard_path, notice: 'Booking was successfully denied'
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.delete
+    redirect_to dashboard_path, notice: 'Booking was successfully deleted'
   end
 
   private
