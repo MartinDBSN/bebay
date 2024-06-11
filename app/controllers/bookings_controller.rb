@@ -15,7 +15,8 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(
       start_date: params[:booking][:date],
-      category: params[:booking][:activity])
+      category: params[:booking][:activity],
+      welcome_family_id: params[:booking][:welcome_family_id])
     @booking.user = current_user
     # @booking.children_pool = ChildrenPool.find(params[:user_id])
     if @booking.save
@@ -46,6 +47,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :category, child_ids: [])
+    params.require(:booking).permit(:start_date, :category, :welcome_family_id, child_ids: [])
   end
 end

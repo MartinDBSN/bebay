@@ -30,22 +30,19 @@ class FamiliesController < ApplicationController
     end
 
     # Itinerate to all bookings of the family to avoid booking on the same date
-    # @family_bookings.each do |booking|
-    #   @child1  = booking.child_ids
-    #   @family1 = Child.find(@child1)
-    #   if booking.start_date == @date.to_date
-    #     @booking_families_id << @family1.user_id
-    #   end
-    # end
-    # @filtered_families = @all_families_id - @booking_families_id
-
+    @family_bookings.each do |booking|
+      @family1 = booking.welcome_family_id
+      if booking.start_date.to_date == @date.to_date
+        @booking_families_id << @family1
+      end
+    end
+    @filtered_families = @all_families_id - @booking_families_id
     # Take the common families of the 3 arrays and add the user object to the families array
-    @matching_families = @location_families_id & @available_families_id # & @filtered_families
+    @matching_families = @location_families_id & @available_families_id & @filtered_families
     @matching_families.each do |id|
       @families << User.find(id)
     end
   end
-
 
   def show
     @family = User.find(params[:id])
