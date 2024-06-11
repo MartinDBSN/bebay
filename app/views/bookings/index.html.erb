@@ -53,7 +53,10 @@
                 <% end %>
               <% end %>
               <h5>
-                Family: <%= User.find(booking.welcome_family_id).family_name.capitalize %>
+                From: <%= User.find(booking.user_id).family_name.capitalize %>
+              </h5>
+              <h5>
+                To: <%= User.find(booking.welcome_family_id).family_name.capitalize %>
               </h5>
               <p>Comment:<%= booking.description %></p>
                 Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
@@ -102,15 +105,17 @@
           </div>
           <div class="requests">
             <ul>
+              <% if @bookings.where(user_id: current_user.id).any? %>
                 <% @my_bookings.each do |booking| %>
-              <% if @bookings.where(user_id: current_user.id).any? && booking.user_id == current_user.id && booking.status == "Confirmed" %>
-                  <li>
+                <% if booking.user_id == current_user.id && booking.status == "Confirmed" %>
+                  <li class="request-card-dashboard">
                     <h5>Family: <%= User.find(booking.welcome_family_id).family_name %></h5>
                     <p>Date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %></p>
                   </li>
+              <% end %>
+              <% end %>
               <% else %>
               <p class="empty-subsection-placeholder"> No scheduled bebaysittings </p>
-              <% end %>
               <% end %>
             </ul>
           </div>
@@ -126,8 +131,9 @@
           </div>
           <div class="requests">
             <ul>
+            <% if @bookings.where(welcome_family_id: current_user.id).any? %>
               <% @bookings.each do |booking|%>
-                <% if @bookings.where(welcome_family_id: current_user.id).any? && booking.welcome_family_id ==  current_user.id && booking.status == "Confirmed" %>
+                <% if booking.welcome_family_id == current_user.id && booking.status == "Confirmed" %>
                   <li class="request-card-dashboard">
                     <h5>
                       Family: <%= booking.user.family_name %>
@@ -139,9 +145,10 @@
                       <%= child.name.capitalize %>
                     <% end %>
                   </li>
+                <% end %>
+              <% end %>
                 <% else %>
                   <p class="empty-subsection-placeholder"> No scheduled bebaysittings </p>
-                <% end %>
               <% end %>
             </ul>
           </div>
