@@ -15,7 +15,7 @@
         <% if child.child_photo.present? %>
           <div class="child-mini">
             <%= cl_image_tag child.child_photo.key, class: "avatar" %>
-            <h5><%= child.name %></h5>
+            <h5><%= child.name.capitalize %></h5>
           </div>
         <% end %>
       <% end %>
@@ -48,13 +48,14 @@
                 <% end %>
               <% end %>
               <h5>
-                Family: <%= booking.user.family_name %>
+                Family: <%= User.find(booking.welcome_family_id).family_name.capitalize %>
               </h5>
               <p>Comment:<%= booking.description %></p>
                 Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
               <br>
               <% booking.children.each do |child| %>
-                <%= child.name %>
+              <%= cl_image_tag child.child_photo.key, class: "avatar" %>
+                <%= child.name.capitalize %>
               <% end %>
               </li>
             <% end %>
@@ -96,17 +97,15 @@
           </div>
           <div class="requests">
             <ul>
-              <% if @bookings.where(user_id: current_user.id).any? %>
                 <% @my_bookings.each do |booking| %>
-                <% if booking.user_id == current_user.id %>
+              <% if @bookings.where(user_id: current_user.id).any? && booking.user_id == current_user.id && booking.status == "Confirmed" %>
                   <li>
-                    <h5>Family: <%= booking.user.family_name %></h5>
+                    <h5>Family: <%= User.find(booking.welcome_family_id).family_name %></h5>
                     <p>Date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %></p>
                   </li>
-                <% end %>
-              <% end %>
               <% else %>
               <p class="empty-subsection-placeholder"> No scheduled bebaysittings </p>
+              <% end %>
               <% end %>
             </ul>
           </div>
@@ -132,7 +131,7 @@
                       Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
                     <br>
                     <% booking.children.each do |child| %>
-                      <%= child.name %>
+                      <%= child.name.capitalize %>
                     <% end %>
                   </li>
                 <% else %>

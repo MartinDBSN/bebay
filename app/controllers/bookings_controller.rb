@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
-    @family = User.find(@booking.user_id)
+    @family = User.find(@booking.welcome_family_id)
     @activity = @booking.category
     @children = current_user.children
   end
@@ -55,6 +55,8 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
+    @children_pool = ChildrenPool.find_by(booking: @booking)
+    @children_pool.delete
     @booking.delete
     redirect_to dashboard_path, notice: 'Booking was successfully deleted'
   end
