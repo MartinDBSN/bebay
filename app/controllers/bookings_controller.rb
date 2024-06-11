@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
     @family = current_user
     @children = @family.children
     @availabilities = current_user.available_dates
+    @available_date = AvailableDate.new
     @my_bookings = current_user.bookings
   end
 
