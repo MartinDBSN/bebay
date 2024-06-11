@@ -43,9 +43,14 @@
 
 .family-photo {
   width: 100%;
+  max-height: 350px;
   border-radius: 16px;
   object-fit: cover;
   margin-bottom: 10px;
+}
+
+.family-photo-and-name {
+  width: 100%;
 }
 
 .family-edit {
@@ -229,5 +234,3 @@
   text-align: center;
   margin-top: 24%;
 }
-
-
