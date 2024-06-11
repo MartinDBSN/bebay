@@ -34,10 +34,12 @@
         <div class="requests">
           <ul>
           <% @bookings.each do |booking|%>
-            <li>
-              Family: <%= booking.user.family_name %>
+            <li class="request-card-dashboard">
+              <h5>
+                Family: <%= booking.user.family_name %>
+              </h5>
               <br>
-              Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
+                Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
               <br>
               <% booking.children.each do |child| %>
                 <%= child.name %>
@@ -89,6 +91,25 @@
           </div> %>
           <div class="bebaysit-title">
             <h3>I bebaysit for them</h3>
+          </div>
+          <div class="requests">
+            <ul>
+              <% if @bookings %>
+                <% @bookings.each do |booking|%>
+                  <li class="request-card-dashboard">
+                    <h5>
+                      Family: <%= booking.user.family_name %>
+                    </h5>
+                    <br>
+                      Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
+                    <br>
+                    <% booking.children.each do |child| %>
+                      <%= child.name %>
+                    <% end %>
+                  </li>
+                <% end %>
+              <% end %>
+            </ul>
           </div>
         </div>
       </div>
