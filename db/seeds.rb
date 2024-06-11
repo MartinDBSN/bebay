@@ -1,3 +1,4 @@
+ChildrenPool.destroy_all
 Booking.destroy_all
 AvailableDate.destroy_all
 Child.destroy_all
