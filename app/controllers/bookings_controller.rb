@@ -50,10 +50,10 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @booking.update(status: 'Confirmed')
     if @booking.save
-      @welcome_family_points = User.find(@booking.welcome_family_id)
-      @welcome_family_points.point_count += 10
-      @welcome_family_points.save
-      current_user.point_count -= 10
+      @booking_family = User.find(@booking.user_id)
+      @booking_family.point_count -= 10
+      @booking_family.save
+      current_user.point_count += 10
       current_user.save
       redirect_to dashboard_path, notice: 'Booking was successfully confirmed'
     else

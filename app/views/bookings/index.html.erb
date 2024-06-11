@@ -111,6 +111,10 @@
                   <li class="request-card-dashboard">
                     <h5>Family: <%= User.find(booking.welcome_family_id).family_name %></h5>
                     <p>Date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %></p>
+                    <% booking.children.each do |child| %>
+                      <%= cl_image_tag child.child_photo.key, class: "avatar" %>
+                      <%= child.name.capitalize %>
+                    <% end %>
                   </li>
               <% end %>
               <% end %>
@@ -142,6 +146,7 @@
                       Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
                     <br>
                     <% booking.children.each do |child| %>
+                      <%= cl_image_tag child.child_photo.key, class: "avatar" %>
                       <%= child.name.capitalize %>
                     <% end %>
                   </li>
