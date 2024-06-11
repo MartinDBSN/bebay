@@ -3,10 +3,18 @@ class AvailableDatesController < ApplicationController
     @available_dates = AvailableDate.all
   end
 
+  def new
+    @available_date = AvailableDate.new
+  end
+
   def create
-    # METHOD TO ADAPT WHEN WE HAVE A BETTER IDEA OF HOW AVAILABLE DATES WILL BE CREATED
     @available_date = AvailableDate.new(available_date_params)
     @available_date.user = current_user
+    if @available_date.save
+      redirect_to bookings_path
+    else
+      render :new, status: :unprocessable_entity, notice: "Impossible to add this availability"
+    end
   end
 
   private

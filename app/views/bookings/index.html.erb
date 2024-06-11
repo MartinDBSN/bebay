@@ -36,10 +36,18 @@
           <% if @bookings.any? %>
           <% @bookings.each do |booking|%>
             <li class="request-card-dashboard">
+            <% if booking.welcome_family_id == current_user.id %>
+            <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"} do%>
+              <i class="fa-solid fa-check"></i>
+            <% end %>
+            <%= link_to booking_deny_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"} do%>
+              <i class="fa-solid fa-x"></i>
+            <% end %>
+            <% end %>
               <h5>
                 Family: <%= booking.user.family_name %>
               </h5>
-              <br>
+              <p>Comment:<%= booking.description %></p>
                 Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
               <br>
               <% booking.children.each do |child| %>
@@ -61,6 +69,11 @@
           </div> %>
         <div class="title-requests-availabilities">
           <h3>Availabilities</h3>
+            <div class="availabilities-edit-button">
+              <a href="#" id="editAvailabilityButton">
+                <%= image_tag "bebay_edit_btn.svg", class: "edit-family-btn" %>
+              </a>
+            </div>
         </div>
           <div class="availabilities">
             <ul>
@@ -70,7 +83,7 @@
               </div>
               <% end %>
             </ul>
-          </div>
+           </div>
         </div>
         <div class="bookingsavailabilities-container">
           <div class="bebaysit-title">
@@ -106,7 +119,7 @@
             <ul>
               <% if @bookings.where(welcome_family_id: current_user.id).any? %>
                 <% @bookings.each do |booking|%>
-                  <% if booking.welcome_family_id ==  current_user.id %>
+                  <% if booking.welcome_family_id ==  current_user.id && booking.status == "Confirmed" %>
                   <li class="request-card-dashboard">
                     <h5>
                       Family: <%= booking.user.family_name %>
@@ -128,4 +141,47 @@
         </div>
       </div>
     </div>
-</div>
+
+<!-- Modal Structure -->
+  <div id="availabilityModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+        <h2>Add your availabilities</h2>
+            <%= simple_form_for @available_date do |f| %>
+              <%= f.select :category, [['Babysitting'],['Pick up at school']], {}, class: "form-field" %>
+              <%= f.text_field :start_date, required: true, placeholder: "Pick start date & time", class: "form-field", data: {controller: "datepicker"} %>
+              <%= f.text_field :end_date, required: true, placeholder: "Pick end date & time", class: "form-field", data: {controller: "datepicker"} %>
+              <%= f.submit value: "Add availability", class: "form-button" %>
+            <% end %>
+      </div>
+    </div>
+  </div>
+
+<script>
+// Get the modal
+var modal = document.getElementById("availabilityModal");
+
+// Get the button that opens the modal
+var btn = document.querySelector(".availabilities-edit-button");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close-button")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function(event) {
+  event.preventDefault();
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
