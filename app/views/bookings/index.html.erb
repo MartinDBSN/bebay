@@ -33,14 +33,14 @@
         </div>
         <div class="requests">
           <ul>
-          <% if @bookings.any? %>
-          <% @bookings.each do |booking|%>
-            <li class="request-card-dashboard">
+          <% @bookings.each do |booking| %>
+            <% if @bookings.any? && booking.status != "Confirmed" %>
+              <li class="request-card-dashboard">
             <% if booking.welcome_family_id == current_user.id %>
-            <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"} do%>
-              <i class="fa-solid fa-check"></i>
+              <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"} do %>
+                <i class="fa-solid fa-check"></i>
             <% end %>
-            <%= link_to booking_deny_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"} do%>
+            <%= link_to booking_deny_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"} do %>
               <i class="fa-solid fa-x"></i>
             <% end %>
             <% end %>
@@ -54,9 +54,9 @@
                 <%= child.name %>
               <% end %>
             </li>
-          <% end %>
-          <% else %>
-          <p class="empty-subsection-placeholder"> No pending requests !</p>
+            <% else %>
+              <p class="empty-subsection-placeholder"> No pending requests !</p>
+            <% end %>
           <% end %>
           </ul>
         </div>
