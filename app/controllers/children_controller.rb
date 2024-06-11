@@ -9,7 +9,7 @@ class ChildrenController < ApplicationController
     if params[:commit] == 'Save and register another child'
       if @child.save
         flash[:notice] = "Child successfully registrated!"
-        redirect_to new_child_path
+        redirect_to dashboard_path
       else
         render :new, status: :unprocessable_entity, notice: "Sorry, we couldn't register your child. Please try again!"
       end
