@@ -11,10 +11,10 @@
       <div class="family-showpage-description">
         <p><%= @family.presentation %></p>
       </div>
-      <div class="family-showpage-child-mini">
+      <div class="family-showpage-children-container">
         <% @family_children.each do |child| %>
           <% if child.child_photo.present? %>
-            <div class="child-mini">
+            <div class="family-showpage-child-mini">
               <%= cl_image_tag child.child_photo.key, class: "avatar" %>
               <h5><%= child.name.capitalize %></h5>
             </div>
@@ -26,7 +26,7 @@
           <%= f.hidden_field :date, value: params[:date] %>
           <%= f.hidden_field :activity, value: params[:activity] %>
           <%= f.hidden_field :welcome_family_id, value: params[:id] %>
-          <%= f.submit "Create your request", id: "createRequestButton", class: 'submit-button' %>
+          <%= f.submit "Send them a request !", id: "createRequestButton", class: 'submit-button' %>
         <% end %>
       </div>
     </div>
@@ -34,38 +34,7 @@
 </div>
 
 
-
-<!--------------- Old Family Show --------------->
-<div class="family-container">
-  <div class="family-container-photo-title">
-    <p class="family-p">Family</p>
-    <h1 class="show-family-title"><%= @family.family_name %></h1>
-    <div class="img-container">
-      <%= cl_image_tag @family.family_photo.key %>
-    </div>
-    <h3>Children</h3>
-    <% @family_children.each do |child| %>
-      <%= cl_image_tag child.child_photo.key, width: 100, height: 100, crop: :fill, radius: "max", fetch_format: "auto" %>
-      <p class="child-name"><%= child.name %></p>
-    <% end %>
-    <hr>
-  </div>
-  <div class="family-container-text-button">
-    <div class="family-description">
-      <p>In the heart of a cozy home, laughter dances through the air like confetti as the Smith family gathers around the dinner table. Parents, John and Emily, share warm smiles as they recount tales of their day, their love evident in the gentle touches and shared glances exchanged between them. Their children, Sarah and David, playfully banter, their bond woven tight with shared secrets and unspoken understanding. In this haven of love and acceptance, every hug is a sanctuary, every shared meal a celebration, and every bedtime story a cherished tradition. Together, they weather life's storms with unwavering support and emerge stronger, their love a beacon of warmth in a world of uncertainty</p>
-    </div>
-    <div>
-      <%= simple_form_for @booking do |f| %>
-        <%= f.hidden_field :date, value: params[:date] %>
-        <%= f.hidden_field :activity, value: params[:activity] %>
-        <%= f.hidden_field :welcome_family_id, value: params[:id] %>
-        <%= f.submit "Create your request", id: "createRequestButton", class: 'submit-button' %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<!--------------- Modal Structure ----- :-)x----->
+<!--------------- Modal Structure ----- :-)x==> ------>
 <div id="requestModal" class="modal">
   <div class="modal-content">
     <span class="close-button">&times;</span>
