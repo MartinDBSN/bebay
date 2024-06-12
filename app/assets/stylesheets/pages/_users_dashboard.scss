@@ -122,14 +122,22 @@
   border-radius: 20px;
 }
 
+.title-requests-availabilities-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 20px;
+}
+
 .availability-design-line {
   border-radius: 30px;
   display: flex;
   align-items: left;
   list-style-type: none;
-  padding: 5px;
+  padding: 5px 10px;
   margin: 5px;
-  border: 1px solid rgb(0, 0, 0);
+  border: 1px solid white;
 }
 
 .availabilities {

@@ -14,6 +14,14 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+    @welcome_family = User.find(@booking.welcome_family_id)
+    @family = User.find(@booking.user_id)
+    @family_children = @booking.children
+  end
+
+
   def create
     booking = Booking.new(booking_params)
     booking.user = current_user

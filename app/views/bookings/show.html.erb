@@ -1,0 +1,42 @@
+<div class="family-showpage-container">
+  <div class="family-showpage-hz-container">
+    <div class="family-showpage-photo-card">
+      <%= cl_image_tag @family.family_photo.key %>
+        <div class="family-showpage-name">
+          <h1><%= @welcome_family.family_name %></h1>
+          <%= link_to family_path(@family), class: "link-icon" do%>
+            <i class="fa-solid fa-link"></i>
+          <% end %>
+        </div>
+    </div>
+    <div class="family-showpage-info-card">
+      <% if @booking.status == "Confirmed" %>
+        <p class="show-booking-status"><i class="status-icon status-icon-confirmed fa-solid fa-circle"></i>Confirmed</p>
+      <% else %>
+        <p class="show-booking-status"><i class="status-icon status-icon-pending fa-solid fa-circle"></i>Pending</p>
+      <% end %>
+      <h2>New Request from: <%= @family.family_name %></h2>
+      <h3>📍<%= @welcome_family.home_address %> - <%= @booking.start_date.strftime("%Y/%m/%d, %I:%M%p") %></h3>
+      <div class="family-showpage-description request">
+        <p><%= @family.presentation %></p>
+        <% if @booking.description != "" %>
+        <h3>Comment:</h3>
+        <p><%= @booking.description %></p>
+        <% end %>
+      </div>
+      <div class="family-showpage-child-mini">
+        <% @family_children.each do |child| %>
+          <% if child.child_photo.present? %>
+            <div class="child-mini">
+              <%= cl_image_tag child.child_photo.key, class: "avatar-show" %>
+              <h5><%= child.name.capitalize %></h5>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <%= link_to dashboard_path, class: "back-dashboard" do%>
+        <i class="fa-solid fa-backward icon-back"></i>Back to dashboard
+      <% end %>
+    </div>
+  </div>
+</div>
