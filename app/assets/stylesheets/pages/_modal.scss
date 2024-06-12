@@ -13,9 +13,33 @@
   background-color: rgba(0,0,0,0.4);
 }
 
+#modal-content-request {
+  background-color: $kentapurple;
+  border-radius: 25px;
+  border: 2px solid #1A1818;
+  margin: 7% auto;
+  padding: 25px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation-name: modalopen;
+  animation-duration: 0.4s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#title-request-confirm {
+  font-size: 45px;
+  padding-bottom: 13px;
+}
+
 .modal-content {
   background-color: $kentapurple;
   border-radius: 25px;
+  border: 2px solid #1A1818;
   margin: 13% auto;
   padding: 25px;
   width: 80%;
@@ -35,7 +59,8 @@
   font-size: 23px;
   background-color: $kentapurple;
   border-radius: 25px;
-  margin: 1% auto;
+  border: 2px solid #1A1818;
+  margin: 4% auto;
   padding: 20px 30px;
   width: 80%;
   max-width: 500px;
@@ -47,6 +72,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+
+#modal-content-childnew {
+  h1 {
+    font-size: 35px;
+    padding-bottom: 10px;
+  }
 }
 
 .form-control {
@@ -110,6 +143,16 @@
 .form-button-child:hover{
   opacity: 50%;
 }
+
+.inline-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.inline-fields .input {
+  flex: 1;
+}
+
 
 @keyframes modalopen {
   from {opacity: 0}
