@@ -9,6 +9,7 @@
   align-items: center;
   flex-direction: column;
   width: 30%;
+  height: 84vh;
   background-color: $kentablue;
   padding: 1em;
   border-radius: 20px;
@@ -76,6 +77,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  .fa-lg {
+    font-size: 40px;
+    line-height: 1;
+  }
 }
 
 .big-container-dashboard {
@@ -100,9 +106,6 @@
   padding: 0em 1em;
 }
 
-.bookingsavailabilities-container {
-  border-left: 1px solid rgb(0, 0, 0);
-}
 
 .bebaysit-title {
   display: flex;
@@ -169,6 +172,23 @@
     list-style-type: none;
     padding-left: 0px;
   }
+}
+
+.availabilities-subsection {
+  height: 30%;
+  border: 2px solid $kentablack;
+  border-radius: 20px;
+  padding: 15px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.1) transparent;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0px;
+  }
+
+
 }
 
 
