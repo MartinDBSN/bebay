@@ -71,7 +71,7 @@ class BookingsController < ApplicationController
       @booking_family.save
       current_user.point_count += 10
       current_user.save
-      redirect_to dashboard_path, notice: 'Booking was successfully confirmed'
+      redirect_to booking_path(@booking), notice: 'Booking was successfully confirmed'
     else
       redirect_to dashboard_path, notice: "Impossible to finalise this booking"
     end
