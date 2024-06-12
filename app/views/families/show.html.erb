@@ -67,10 +67,10 @@
 
 <!--------------- Modal Structure ----- :-)x----->
 <div id="requestModal" class="modal">
-  <div class="modal-content">
+  <div id="modal-content-request">
     <span class="close-button">&times;</span>
       <div class="request-textarea">
-        <h1>Confirm your request</h1>
+        <h1 id="title-request-confirm">Confirm your request</h1>
       </div>
       <div class="request-form">
         <div class="request-infos">
@@ -81,7 +81,7 @@
             <%= f.hidden_field :start_date, value: params[:date] %>
             <%= f.hidden_field :category, value: params[:activity] %>
             <%= f.hidden_field :welcome_family_id, value: params[:id] %>
-            <%= f.input :description, as: :text %>
+            <%= f.input :description, as: :text, label: "Add a comment" %>
             <%= f.association :children, as: :check_boxes, collection: @children, required: true %>
             <%= f.submit "Confirm your request", class: 'submit-button' %>
           <% end %>

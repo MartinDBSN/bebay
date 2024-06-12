@@ -19,6 +19,8 @@
 
   background-color: $kentapink;
   border-radius: 30px;
+  border: 2px solid #1A1818;
+  box-shadow: 5px 5px $kentablack;
   width: 21%;
   min-width: 200px;
   max-width: 25%;
@@ -63,6 +65,7 @@ h5 {
 .family-card-info-container {
   display: flex;
   background-color: $lightbeige;
+  border: 2px solid #1A1818;
   border-radius: 27px;
   justify-content: space-between;
   align-items: center;
