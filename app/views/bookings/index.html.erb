@@ -19,10 +19,11 @@
           </div>
         <% end %>
       <% end %>
-      <div class="child-add">
+      <div class="child-mini">
         <a href="#" id="add-child-button">
           <i class="fa-solid fa-circle-plus fa-lg" style="color: #F4F4F4;"></i>
         </a>
+        <h5>Add child</h5>
       </div>
     </div>
     <div class="separator"></div>
@@ -35,7 +36,7 @@
               </a>
             </div>
         </div>
-          <div class="availabilities">
+          <div class="availabilities-subsection">
             <ul>
               <% @availabilities.each do |availability| %>
               <div class="availability-design-line">
@@ -53,96 +54,83 @@
       <div class="dashboard">
         <div class="requesthistory-container">
         <div class="title-requests-availabilities">
-          <h3>Requests</h3>
+          <h3>Requests received</h3>
         </div>
         <div class="requests">
           <ul>
-          <% if @my_bookings.empty? || @my_bookings.all? {|booking| booking.status == "Confirmed"}%>
+          <% if @received_bookings.empty? || @received_bookings.all? {|booking| booking.status == "Confirmed"}%>
             <p class="empty-subsection-placeholder"> No pending requests !</p>
           <% end %>
-          <% @my_bookings.each do |booking| %>
-              <% if booking.status != "Confirmed" %>
+          <% @received_bookings.each do |booking| %>
+            <% if booking.status != "Confirmed" %>
               <%= link_to booking_path(booking), class: "txt-n" do%>
               <li class="request-card-dashboard">
-                <div class="first-line-li">
-                  <h5>From: <%= User.find(booking.user_id).family_name.capitalize %></h5>
-                  <div>
-                  <% if booking.welcome_family_id == current_user.id %>
-                    <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"}, style: 'text-decoration:none;' do%>
-                      <i class="fa-solid fa-check fa-sm confirmed-icon-dashboard"></i>
-                    <% end %>
-                    <%= link_to booking_path(booking), data: {turbo_method: "delete", turbo_confirm: "Are you sure?"} do%>
-                      <i class="fa-solid fa-x fa-sm deleted-icon-dashboard"></i>
-                    <% end %>
-                  <% end %>
-                  </div>
-                </div>
-                <div class="second-line-li">
-                  Start date: <%= booking.start_date.strftime("%Y/%m/%d") %>
-                </div>
+              <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"}, style: 'text-decoration:none;' do%>
+                  <i class="fa-solid fa-check"></i>
+                <% end %>
+                <%= link_to booking_path(booking), data: {turbo_method: "delete", turbo_confirm: "Are you sure?"} do%>
+                  <i class="fa-solid fa-x"></i>
+                <% end %>
+                <h5>
+                  From: <%= User.find(booking.user_id).family_name.capitalize %>
+                </h5>
+                <h5>
+                  To: <%= User.find(booking.welcome_family_id).family_name.capitalize %>
+                </h5>
+                <p>Comment:<%= booking.description %></p>
+                  Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
+                <br>
+                <% booking.children.each do |child| %>
+                <%= cl_image_tag child.child_photo.key, class: "avatar" %>
+                  <%= child.name.capitalize %>
+                <% end %>
               </li>
+
                 <% end %>
             <% end %>
           <% end %>
           </ul>
         </div>
         <div class="title-requests-availabilities">
-          <h3>Availabilities</h3>
-            <div class="availabilities-edit-button">
-              <a href="#" id="editAvailabilityButton">
-                <i id="add-button-icon" class="fa-solid fa-circle-plus fa-lg" style="color: #0c0000;"></i>
-              </a>
-            </div>
+          <h3>Requests sent</h3>
         </div>
-          <div class="availabilities">
-            <ul>
-              <% @availabilities.each do |availability| %>
-              <div class="availability-design-line">
-                <li><%= availability.start_date.strftime("%Y/%m/%d - %I:%M%p") %> ► <%= availability.end_date.strftime("%Y/%m/%d - %I:%M%p") %>
-                  <%= link_to available_date_path(availability), data: {turbo_method: "delete"}, turbo_confirm: "Are you sure?" do %>
-                  <i class="fa-solid fa-x" style="color: #040419;"></i>
-                  <% end %>
-                </li>
-              </div>
-              <% end %>
-            </ul>
-           </div>
+        <div class="requests">
+          <ul>
+          <% if @sent_bookings.empty? || @sent_bookings.all? {|booking| booking.status == "Confirmed"}%>
+            <p class="empty-subsection-placeholder"> No pending requests !</p>
+          <% end %>
+          <% @sent_bookings.each do |booking| %>
+            <% if booking.status != "Confirmed" %>
+              <li class="request-card-dashboard">
+                <h5>
+                  From: <%= User.find(booking.user_id).family_name.capitalize %>
+                </h5>
+                <h5>
+                  To: <%= User.find(booking.welcome_family_id).family_name.capitalize %>
+                </h5>
+                <p>Comment:<%= booking.description %></p>
+                  Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
+                <br>
+                <% booking.children.each do |child| %>
+                <%= cl_image_tag child.child_photo.key, class: "avatar" %>
+                  <%= child.name.capitalize %>
+                <% end %>
+              </li>
+            <% end %>
+          <% end %>
+          </ul>
+        </div>
         </div>
         <div class="bookingsavailabilities-container">
-          <div class="bebaysit-title">
-            <h3>They bebaysit for me</h3>
-          </div>
-          <div class="requests">
-            <ul>
-              <% if @bookings.where(user_id: current_user.id, status: "Confirmed").any? %>
-                <% @my_bookings.each do |booking| %>
-                <% if booking.user_id == current_user.id && booking.status == "Confirmed" %>
-                  <%= link_to booking_path(booking), class: "txt-n" do%>
-                  <li class="request-card-dashboard">
-                    <h5>Family: <%= User.find(booking.welcome_family_id).family_name %></h5>
-                    <p>Date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %></p>
-                    <% booking.children.each do |child| %>
-                      <%= cl_image_tag child.child_photo.key, class: "avatar" %>
-                      <%= child.name.capitalize %>
-                    <% end %>
-                  </li>
-                  <% end %>
-              <% end %>
-              <% end %>
-              <% else %>
-              <p class="empty-subsection-placeholder"> No scheduled bebaysittings </p>
-              <% end %>
-            </ul>
-          </div>
           <div class="bebaysit-title">
             <h3>I bebaysit for them</h3>
           </div>
           <div class="requests">
             <ul>
-            <% if @bookings.where(welcome_family_id: current_user.id).any? %>
-              <% @bookings.each do |booking|%>
-                <% if booking.welcome_family_id == current_user.id && booking.status == "Confirmed" %>
-                  <%= link_to booking_path(booking), class: "txt-n" do%>
+            <% if @received_bookings.empty? || @received_bookings.all? {|booking| booking.status != "Confirmed"}%>
+                <p class="empty-subsection-placeholder"> No scheduled bebaysittings</p>
+              <% else %>
+                <% @received_bookings.each do |booking|%>
                   <li class="request-card-dashboard">
                     <h5>
                       Family: <%= booking.user.family_name %>
@@ -157,8 +145,26 @@
                   <% end %>
                 <% end %>
               <% end %>
-                <% else %>
-                  <p class="empty-subsection-placeholder"> No scheduled bebaysittings </p>
+            </ul>
+          </div>
+          <div class="bebaysit-title">
+            <h3>They bebaysit for me</h3>
+          </div>
+          <div class="requests">
+            <ul>
+              <% if @sent_bookings.empty? || @sent_bookings.all? {|booking| booking.status != "Confirmed"}%>
+                <p class="empty-subsection-placeholder"> No scheduled bebaysittings</p>
+              <% else %>
+                <% @sent_bookings.each do |booking| %>
+                  <li class="request-card-dashboard">
+                    <h5>Family: <%= User.find(booking.welcome_family_id).family_name %></h5>
+                    <p>Date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %></p>
+                    <% booking.children.each do |child| %>
+                      <%= cl_image_tag child.child_photo.key, class: "avatar" %>
+                      <%= child.name.capitalize %>
+                    <% end %>
+                  </li>
+                <% end %>
               <% end %>
             </ul>
           </div>
