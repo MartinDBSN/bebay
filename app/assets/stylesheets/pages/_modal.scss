@@ -17,7 +17,7 @@
   background-color: $kentapurple;
   border-radius: 25px;
   margin: 13% auto;
-  padding: 20px;
+  padding: 25px;
   width: 80%;
   max-width: 500px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -30,6 +30,35 @@
   justify-content: center;
 }
 
+#modal-content-childnew {
+  font-family: "PPRader-Regular";
+  font-size: 23px;
+  background-color: $kentapurple;
+  border-radius: 25px;
+  margin: 1% auto;
+  padding: 20px 30px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation-name: modalopen;
+  animation-duration: 0.4s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-control {
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.form-select {
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
 #new_available_date {
   display: flex;
   flex-direction: column;
@@ -39,7 +68,6 @@
 #new_available_date .form-button {
   margin: 10px;
 }
-
 
 .close-button {
   color: #505050;
@@ -66,6 +94,21 @@
 
 #new-booking{
   margin-top: 10px;
+}
+
+.form-button-child {
+  background-color: $kentayellow;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  border-color: $kentayellow;
+  font-family: 'Syne-Medium';
+  font-weight: bold;
+}
+
+.form-button-child:hover{
+  opacity: 50%;
 }
 
 @keyframes modalopen {

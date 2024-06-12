@@ -20,9 +20,9 @@
         <% end %>
       <% end %>
       <div class="child-add">
-        <%= link_to new_child_path do %>
-          <i id="add-button-icon" class="fa-solid fa-circle-plus fa-lg" style="color: #F4F4F4;"></i>
-        <% end %>
+        <a href="#" id="add-child-button">
+          <i class="fa-solid fa-circle-plus fa-lg" style="color: #F4F4F4;"></i>
+        </a>
       </div>
     </div>
     <div class="separator"></div>
@@ -179,7 +179,25 @@
         </div>
       </div>
     </div>
-<!-- Modal Structure -->
+
+<!-- Modal Child Registration Structure -->
+<div id="childRegistrationModal" class="modal">
+  <div id="modal-content-childnew">
+    <span class="close-button">&times;</span>
+    <h2>Add a new child to your Family</h2>
+    <%= simple_form_for @child do |f| %>
+      <%= f.input :name, input_html: { placeholder: "ex: Tom" }, label: "First name"%>
+      <%= f.input :gender, collection: [['Male', 'Male'], ['Female', 'Female'], ["Don't want to specify", "Don't want to specify"]], include_blank: false, prompt: "Select gender" %>
+      <%= f.input :birthday, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year, order: [:day, :month, :year], label: "Select Birthday" %>
+      <%= f.input :child_comment, input_html: { maxlength: 255, placeholder: "ex: Personality, allergies, etc.)" }, label: "Add description" %>
+      <%= f.input :child_photo, as: :file, input_html: { placeholder: "Upload photo" } %>
+      <%= f.submit 'Save and register another child', class: "form-button-child" %>
+      <%= f.submit 'Save and checkout', class: "form-button-child" %>
+    <% end %>
+  </div>
+</div>
+
+<!-- Modal Availability Structure -->
   <div id="availabilityModal" class="modal">
     <div class="modal-content">
       <span class="close-button">&times;</span>
@@ -195,30 +213,39 @@
   </div>
 
 <script>
-// Get the modal
-var modal = document.getElementById("availabilityModal");
+// Availability Modal
+var availabilityModal = document.getElementById("availabilityModal");
+var availabilityBtn = document.querySelector(".availabilities-edit-button");
+var availabilityClose = document.getElementsByClassName("close-button")[0];
 
-// Get the button that opens the modal
-var btn = document.querySelector(".availabilities-edit-button");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close-button")[0];
-
-// When the user clicks on the button, open the modal
-btn.onclick = function(event) {
+availabilityBtn.onclick = function(event) {
   event.preventDefault();
-  modal.style.display = "block";
+  availabilityModal.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+availabilityClose.onclick = function() {
+  availabilityModal.style.display = "none";
 }
 
-// When the user clicks anywhere outside of the modal, close it
+// Child Registration Modal
+var childModal = document.getElementById("childRegistrationModal");
+var childBtn = document.getElementById("add-child-button");
+var childClose = document.querySelector("#childRegistrationModal .close-button");
+
+childBtn.onclick = function(event) {
+  event.preventDefault();
+  childModal.style.display = "block";
+}
+
+childClose.onclick = function() {
+  childModal.style.display = "none";
+}
+
 window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == availabilityModal) {
+    availabilityModal.style.display = "none";
+  } else if (event.target == childModal) {
+    childModal.style.display = "none";
   }
 }
 </script>
