@@ -49,6 +49,7 @@ gem "bootsnap", require: false
 
 # Manually imported
 gem "geocoder"
+gem 'simple_calendar'
 
 # Auto imported
 gem "bootstrap", "~> 5.2"
