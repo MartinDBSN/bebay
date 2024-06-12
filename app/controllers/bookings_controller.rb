@@ -14,19 +14,30 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(
-      start_date: params[:booking][:date],
-      category: params[:booking][:activity],
-      description: params[:booking][:description],
-      welcome_family_id: params[:booking][:welcome_family_id])
-    @booking.user = current_user
-    # @booking.children_pool = ChildrenPool.find(params[:user_id])
-    if @booking.save
-      redirect_to edit_booking_path(@booking)
+
+    booking = Booking.new(booking_params)
+    booking.user = current_user
+    if booking.save
+      redirect_to dashboard_path, notice: "Request sent"
     else
-      # @children_pool = @booking.children_pool
       redirect_to family_path(current_user), status: :unprocessable_entity, notice: "Impossible to book this family"
     end
+
+
+
+    # @booking = Booking.new(
+    #   start_date: params[:booking][:date],
+    #   category: params[:booking][:activity],
+    #   description: params[:booking][:description],
+    #   welcome_family_id: params[:booking][:welcome_family_id])
+    # @booking.user = current_user
+    # # @booking.children_pool = ChildrenPool.find(params[:user_id])
+    # if @booking.save
+    #   redirect_to edit_booking_path(@booking)
+    # else
+    #   # @children_pool = @booking.children_pool
+    #   redirect_to family_path(current_user), status: :unprocessable_entity, notice: "Impossible to book this family"
+    # end
   end
 
   def edit
