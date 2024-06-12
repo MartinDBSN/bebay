@@ -61,41 +61,31 @@
             <p class="empty-subsection-placeholder"> No pending requests !</p>
           <% end %>
           <% @my_bookings.each do |booking| %>
-            <% if booking.status != "Confirmed" %>
+              <% if booking.status != "Confirmed" %>
+              <%= link_to booking_path(booking), class: "txt-n" do%>
               <li class="request-card-dashboard">
-              <% if booking.welcome_family_id == current_user.id %>
-                <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"}, style: 'text-decoration:none;' do%>
-                  <i class="fa-solid fa-check"></i>
-                <% end %>
-                <%= link_to booking_path(booking), data: {turbo_method: "delete", turbo_confirm: "Are you sure?"} do%>
-                  <i class="fa-solid fa-x"></i>
-                <% end %>
-              <% end %>
-              <h5>
-                From: <%= User.find(booking.user_id).family_name.capitalize %>
-              </h5>
-              <h5>
-                To: <%= User.find(booking.welcome_family_id).family_name.capitalize %>
-              </h5>
-              <p>Comment:<%= booking.description %></p>
-                Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
-              <br>
-              <% booking.children.each do |child| %>
-              <%= cl_image_tag child.child_photo.key, class: "avatar" %>
-                <%= child.name.capitalize %>
-              <% end %>
+                <div class="first-line-li">
+                  <h5>From: <%= User.find(booking.user_id).family_name.capitalize %></h5>
+                  <div>
+                  <% if booking.welcome_family_id == current_user.id %>
+                    <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"}, style: 'text-decoration:none;' do%>
+                      <i class="fa-solid fa-check fa-sm confirmed-icon-dashboard"></i>
+                    <% end %>
+                    <%= link_to booking_path(booking), data: {turbo_method: "delete", turbo_confirm: "Are you sure?"} do%>
+                      <i class="fa-solid fa-x fa-sm deleted-icon-dashboard"></i>
+                    <% end %>
+                  <% end %>
+                  </div>
+                </div>
+                <div class="second-line-li">
+                  Start date: <%= booking.start_date.strftime("%Y/%m/%d") %>
+                </div>
               </li>
+                <% end %>
             <% end %>
           <% end %>
           </ul>
         </div>
-        <%# <h4>History</h4>
-          <div class="history">
-            <ul>
-              <li>History 1</li>
-              <li>History 2</li>
-            </ul>
-          </div> %>
         <div class="title-requests-availabilities">
           <h3>Availabilities</h3>
             <div class="availabilities-edit-button">
@@ -127,6 +117,7 @@
               <% if @bookings.where(user_id: current_user.id, status: "Confirmed").any? %>
                 <% @my_bookings.each do |booking| %>
                 <% if booking.user_id == current_user.id && booking.status == "Confirmed" %>
+                  <%= link_to booking_path(booking), class: "txt-n" do%>
                   <li class="request-card-dashboard">
                     <h5>Family: <%= User.find(booking.welcome_family_id).family_name %></h5>
                     <p>Date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %></p>
@@ -135,6 +126,7 @@
                       <%= child.name.capitalize %>
                     <% end %>
                   </li>
+                  <% end %>
               <% end %>
               <% end %>
               <% else %>
@@ -142,13 +134,6 @@
               <% end %>
             </ul>
           </div>
-          <%# <h4>I babysit for them</h4>
-          <div class="bookings-for-them">
-            <ul>
-              <li>Booking 1</li>
-              <li>Booking 2</li>
-            </ul>
-          </div> %>
           <div class="bebaysit-title">
             <h3>I bebaysit for them</h3>
           </div>
@@ -157,11 +142,11 @@
             <% if @bookings.where(welcome_family_id: current_user.id).any? %>
               <% @bookings.each do |booking|%>
                 <% if booking.welcome_family_id == current_user.id && booking.status == "Confirmed" %>
+                  <%= link_to booking_path(booking), class: "txt-n" do%>
                   <li class="request-card-dashboard">
                     <h5>
                       Family: <%= booking.user.family_name %>
                     </h5>
-                    <br>
                       Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
                     <br>
                     <% booking.children.each do |child| %>
@@ -169,6 +154,7 @@
                       <%= child.name.capitalize %>
                     <% end %>
                   </li>
+                  <% end %>
                 <% end %>
               <% end %>
                 <% else %>
