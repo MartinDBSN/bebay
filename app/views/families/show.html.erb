@@ -65,7 +65,7 @@
   </div>
 </div>
 
-<!--------------- Modal Structure ----- :-)x==> ------>
+<!--------------- Modal Structure ----- :-)x----->
 <div id="requestModal" class="modal">
   <div class="modal-content">
     <span class="close-button">&times;</span>
@@ -78,6 +78,9 @@
           <h2><strong>Activity type:  </strong> <%= @activity  %></h2>
           <h2><strong>Date:  </strong> <%= @date %></h2>
           <%= simple_form_for @booking do |f| %>
+            <%= f.hidden_field :start_date, value: params[:date] %>
+            <%= f.hidden_field :category, value: params[:activity] %>
+            <%= f.hidden_field :welcome_family_id, value: params[:id] %>
             <%= f.input :description, as: :text %>
             <%= f.association :children, as: :check_boxes, collection: @children, required: true %>
             <%= f.submit "Confirm your request", class: 'submit-button' %>
