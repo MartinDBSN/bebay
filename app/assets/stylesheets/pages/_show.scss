@@ -203,3 +203,46 @@ h3{
   opacity:70%;
   text-decoration: underline;
 }
+
+.show-booking-status{
+  background-color: $lightbeige;
+  border: 2px solid $kentablack;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.status-icon{
+  padding-right: 1em;
+}
+
+.status-icon-pending{
+  color: $kentayellow;
+  padding-right: 1em;
+}
+
+.status-icon-confirmed{
+  color: green;
+  padding-right: 1em;
+}
+
+
+
+.icon-back{
+  padding-right:1em;
+}
+.back-dashboard{
+  color:$lightbeige;
+  text-decoration:none;
+  font-family: "Syne-Medium";
+  font-weight: normal;
+}
+
+.back-dashboard:hover{
+  color: $kentablue;
+  text-decoration:solid;
+}
+
+.link-icon {
+  color: $kentablue;
+  padding-left:1em;
+}

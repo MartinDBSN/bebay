@@ -26,10 +26,29 @@
       </div>
     </div>
     <div class="separator"></div>
-    <div class="container-family-dashboard-description">
-      <p><%= current_user.presentation %></p>
-    </div>
-  </div>
+
+    <div class="title-requests-availabilities-2">
+          <h3>Availabilities</h3>
+            <div class="availabilities-edit-button">
+              <a href="#" id="editAvailabilityButton">
+                <i id="add-button-icon" class="fa-solid fa-circle-plus fa-lg" style="color: #0c0000;"></i>
+              </a>
+            </div>
+        </div>
+          <div class="availabilities">
+            <ul>
+              <% @availabilities.each do |availability| %>
+              <div class="availability-design-line">
+                <li><%= availability.start_date.strftime("%Y/%m/%d - %I:%M%p") %> ► <%= availability.end_date.strftime("%Y/%m/%d - %I:%M%p") %>
+                  <%= link_to available_date_path(availability), data: {turbo_method: "delete"}, turbo_confirm: "Are you sure?" do %>
+                  <i class="fa-solid fa-x" style="color: #040419;"></i>
+                  <% end %>
+                </li>
+              </div>
+              <% end %>
+            </ul>
+           </div>
+        </div>
     <div class="big-container-dashboard">
       <div class="dashboard">
         <div class="requesthistory-container">
