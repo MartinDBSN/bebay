@@ -1,3 +1,41 @@
+<div class="family-showpage-container">
+  <div class="family-showpage-hz-container">
+    <div class="family-showpage-photo-card">
+      <%= cl_image_tag @family.family_photo.key %>
+        <div class="family-showpage-name">
+          <h1><%= @family.family_name %></h1>
+        </div>
+    </div>
+    <div class="family-showpage-info-card">
+      <h2>Welcome!</h2>
+      <div class="family-showpage-description">
+        <p><%= @family.presentation %></p>
+      </div>
+      <div class="family-showpage-child-mini">
+        <% @family_children.each do |child| %>
+          <% if child.child_photo.present? %>
+            <div class="child-mini">
+              <%= cl_image_tag child.child_photo.key, class: "avatar" %>
+              <h5><%= child.name.capitalize %></h5>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div>
+        <%= simple_form_for @booking do |f| %>
+          <%= f.hidden_field :date, value: params[:date] %>
+          <%= f.hidden_field :activity, value: params[:activity] %>
+          <%= f.hidden_field :welcome_family_id, value: params[:id] %>
+          <%= f.submit "Create your request", id: "createRequestButton", class: 'submit-button' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--------------- Old Family Show --------------->
 <div class="family-container">
   <div class="family-container-photo-title">
     <p class="family-p">Family</p>
