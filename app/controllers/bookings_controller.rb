@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
+    @child = Child.new
     @family = current_user
     @children = @family.children
     @availabilities = current_user.available_dates
@@ -14,7 +15,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-
     booking = Booking.new(booking_params)
     booking.user = current_user
     if booking.save
@@ -22,9 +22,6 @@ class BookingsController < ApplicationController
     else
       redirect_to family_path(current_user), status: :unprocessable_entity, notice: "Impossible to book this family"
     end
-
-
-
     # @booking = Booking.new(
     #   start_date: params[:booking][:date],
     #   category: params[:booking][:activity],
