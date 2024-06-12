@@ -29,10 +29,6 @@ body {
 
 }
 
-.home-title {
-
-}
-
 .home-title h1 {
   font-size: 6em;
   font-family: 'PPRader-Regular';
@@ -53,6 +49,17 @@ body {
 }
 .log-in{
 padding:50px;
+margin: 3em 5em;
+border: 1px solid rgb(0, 0, 0);
+border-radius: 10px;
+background-color: $kentablue;
+width: 60%;
+margin:auto;
+
+.form-actions {
+
+  margin-bottom: 1em;
+}
 }
 
 .form-field{
