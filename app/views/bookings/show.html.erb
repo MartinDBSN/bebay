@@ -32,14 +32,18 @@
       <% end %>
       <% if @booking.status == "Confirmed" %>
         <h2>Booking from: <%= @family.family_name %> to <%= @welcome_family.family_name %></h2>
-        <p class="booking-category-display"><%= @booking.category %></p>
-        <p class="address-show-booking">📍  <%= @welcome_family.home_address %></p>
-        <p class="datetime-show-booking"> 📆  <%= @booking.start_date.strftime("%Y/%m/%d, %I:%M%p") %></p>
+        <div class="booking-request-info">
+          <p class="booking-info-display"><i class="fa-solid fa-person-breastfeeding" style="color: #1a1818;"></i> <%= @booking.category %></p>
+          <p class="booking-info-display"><i class="fa-solid fa-location-dot" style="color: #181717;"></i> <%= @welcome_family.home_address %></p>
+          <p class="booking-info-display"><i class="fa-solid fa-calendar" style="color: #1a1818;"></i> <%= @booking.start_date.strftime("%Y/%m/%d, %I:%M%p") %></p>
+        </div>
       <% else %>
         <h2>New Request from: <%= @family.family_name %> to <%= @welcome_family.family_name %></h2>
-        <p class="booking-category-display"><%= @booking.category %></p>
-        <p class="address-show-booking">📍  <%= @welcome_family.home_address %></p>
-        <p class="datetime-show-booking"> 📆  <%= @booking.start_date.strftime("%Y/%m/%d, %I:%M%p") %></p>
+        <div class="booking-request-info">
+          <p class="booking-info-display"><%= @booking.category %></p>
+          <p class="booking-info-display">📍  <%= @welcome_family.home_address %></p>
+          <p class="booking-info-display"> 📆  <%= @booking.start_date.strftime("%Y/%m/%d, %I:%M%p") %></p>
+        </div>
       <% end %>
       <div class="family-showpage-description request">
         <% if @booking.description.present? %>
