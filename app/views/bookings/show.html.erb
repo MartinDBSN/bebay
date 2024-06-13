@@ -19,7 +19,6 @@
           <% end %>
         <% end %>
       </div>
-      <%# <p><%= @family.presentation </p> %>
     </div>
     <div class="family-showpage-info-card">
       <% if @booking.status == "Confirmed" %>
@@ -61,13 +60,13 @@
             </div>
           <% end %>
         <% end %>
-        <% if @booking.status != "Confirmed" %>
+        <% if @booking.status != "Confirmed" && @booking.welcome_family_id == current_user.id %>
           <div class="confirmation">
+          <%= link_to booking_validate_path(@booking), data: { turbo_method: "patch", turbo_confirm: "Are you sure?" }, style: 'text-decoration:none;' do %>
+              <i class="fa-solid fa-check confirmed-icon"></i>
+            <% end %>
             <%= link_to booking_path(@booking), data: { turbo_method: "delete", turbo_confirm: "Are you sure?" } do %>
               <i class="fa-solid fa-x deleted-icon"></i>
-            <% end %>
-            <%= link_to booking_validate_path(@booking), data: { turbo_method: "patch", turbo_confirm: "Are you sure?" }, style: 'text-decoration:none;' do %>
-              <i class="fa-solid fa-check confirmed-icon"></i>
             <% end %>
           </div>
         <% end %>
