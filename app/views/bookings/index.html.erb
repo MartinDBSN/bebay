@@ -27,29 +27,31 @@
       </div>
     </div>
     <div class="separator"></div>
-
+    <div class="availabilities-section" data-controller="pop-up">
     <div class="title-requests-availabilities-2">
-          <h3>Availabilities</h3>
-            <div class="availabilities-edit-button">
+            <div class="pr-2 availabilities-edit-button">
               <a href="#" id="editAvailabilityButton">
                 <i id="add-button-icon" class="fa-solid fa-circle-plus fa-lg" style="color: #0c0000;"></i>
               </a>
             </div>
+          <h3 class="title-availabilities" data-action="click->pop-up#reveal">Availabilities</h3>
+        <i class="fa-solid fa-arrow-down arrow" data-action="click->pop-up#reveal"></i>
         </div>
-          <div class="availabilities-subsection">
-            <ul>
-              <% @availabilities.each do |availability| %>
-              <div class="availability-design-line">
-                <li><%= availability.start_date.strftime("%Y/%m/%d - %I:%M%p") %> ► <%= availability.end_date.strftime("%Y/%m/%d - %I:%M%p") %>
-                  <%= link_to available_date_path(availability), data: {turbo_method: "delete"}, turbo_confirm: "Are you sure?" do %>
-                  <i class="fa-solid fa-x" style="color: #040419;"></i>
-                  <% end %>
-                </li>
-              </div>
-              <% end %>
-            </ul>
-           </div>
+                            <div class="availabilities-subsection d-none" data-pop-up-target="availabilities">
+                              <ul>
+                                <% @availabilities.each do |availability| %>
+                                <div class="availability-design-line">
+                                  <li><%= availability.start_date.strftime("%Y/%m/%d - %I:%M%p") %> ► <%= availability.end_date.strftime("%Y/%m/%d - %I:%M%p") %>
+                                    <%= link_to available_date_path(availability), data: {turbo_method: "delete"}, turbo_confirm: "Are you sure?" do %>
+                                    <i class="fa-solid fa-x" style="color: #040419;"></i>
+                                    <% end %>
+                                  </li>
+                                </div>
+                                <% end %>
+                              </ul>
+                              </div>
         </div>
+    </div>
     <div class="big-container-dashboard">
       <div class="dashboard">
         <div class="requesthistory-container">
@@ -63,30 +65,24 @@
           <% end %>
           <% @received_bookings.each do |booking| %>
             <% if booking.status != "Confirmed" %>
-              <%= link_to booking_path(booking), class: "txt-n" do%>
+              <%= link_to booking_path(booking) do%>
               <li class="request-card-dashboard">
-              <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"}, style: 'text-decoration:none;' do%>
-                  <i class="fa-solid fa-check"></i>
-                <% end %>
-                <%= link_to booking_path(booking), data: {turbo_method: "delete", turbo_confirm: "Are you sure?"} do%>
-                  <i class="fa-solid fa-x"></i>
-                <% end %>
+              <div class="first-line-li">
                 <h5>
                   From: <%= User.find(booking.user_id).family_name.capitalize %>
                 </h5>
-                <h5>
-                  To: <%= User.find(booking.welcome_family_id).family_name.capitalize %>
-                </h5>
-                <p>Comment:<%= booking.description %></p>
-                  Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
-                <br>
-                <% booking.children.each do |child| %>
-                <%= cl_image_tag child.child_photo.key, class: "avatar" %>
-                  <%= child.name.capitalize %>
+                <div>
+                <%= link_to booking_validate_path(booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"}, style: 'text-decoration:none;' do%>
+                  <i class="fa-solid fa-check confirmed-icon-dashboard"></i>
                 <% end %>
+                <%= link_to booking_path(booking), data: {turbo_method: "delete", turbo_confirm: "Are you sure?"} do%>
+                  <i class="fa-solid fa-x deleted-icon-dashboard"></i>
+                <% end %>
+                </div>
+                </div>
+                  <p class="dashboard-date">Date: <%= booking.start_date.strftime("%Y/%m/%d") %></p>
               </li>
-
-                <% end %>
+              <% end %>
             <% end %>
           <% end %>
           </ul>
@@ -101,21 +97,14 @@
           <% end %>
           <% @sent_bookings.each do |booking| %>
             <% if booking.status != "Confirmed" %>
+              <%= link_to booking_path(booking), style: "text-decoration:none;" do%>
               <li class="request-card-dashboard">
-                <h5>
-                  From: <%= User.find(booking.user_id).family_name.capitalize %>
-                </h5>
                 <h5>
                   To: <%= User.find(booking.welcome_family_id).family_name.capitalize %>
                 </h5>
-                <p>Comment:<%= booking.description %></p>
-                  Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
-                <br>
-                <% booking.children.each do |child| %>
-                <%= cl_image_tag child.child_photo.key, class: "avatar" %>
-                  <%= child.name.capitalize %>
-                <% end %>
+                  <p class="dashboard-date">Date: <%= booking.start_date.strftime("%Y/%m/%d") %></p>
               </li>
+              <% end %>
             <% end %>
           <% end %>
           </ul>
@@ -131,17 +120,18 @@
                 <p class="empty-subsection-placeholder"> No scheduled bebaysittings</p>
               <% else %>
                 <% @received_bookings.each do |booking|%>
+                  <%= link_to booking_path(booking), style: "text-decoration:none;" do%>
                   <li class="request-card-dashboard">
                     <h5>
-                      Family: <%= booking.user.family_name %>
+                      <%= booking.user.family_name %>
                     </h5>
-                      Start date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %>
-                    <br>
+                      <p class="dashboard-date">Date: <%= booking.start_date.strftime("%Y/%m/%d") %></p>
                     <% booking.children.each do |child| %>
                       <%= cl_image_tag child.child_photo.key, class: "avatar" %>
                       <%= child.name.capitalize %>
                     <% end %>
                   </li>
+                  <% end %>
                   <% end %>
                 <% end %>
             </ul>
@@ -155,14 +145,12 @@
                 <p class="empty-subsection-placeholder"> No scheduled bebaysittings</p>
               <% else %>
                 <% @sent_bookings.each do |booking| %>
+                  <%= link_to booking_path(booking), style: "text-decoration:none;" do%>
                   <li class="request-card-dashboard">
-                    <h5>Family: <%= User.find(booking.welcome_family_id).family_name %></h5>
-                    <p>Date: <%= booking.start_date.strftime("%Y/%m/%d - %I:%M%p") %></p>
-                    <% booking.children.each do |child| %>
-                      <%= cl_image_tag child.child_photo.key, class: "avatar" %>
-                      <%= child.name.capitalize %>
-                    <% end %>
+                    <h5><%= User.find(booking.welcome_family_id).family_name %></h5>
+                    <p class="dashboard-date">Date: <%= booking.start_date.strftime("%Y/%m/%d") %></p>
                   </li>
+                  <% end %>
                 <% end %>
               <% end %>
             </ul>

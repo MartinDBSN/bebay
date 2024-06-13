@@ -280,8 +280,8 @@ h3{
   font-size: 1.1em!important;
 }
 
-.confirmed-icon{
-  padding: 13px;
+.deleted-icon{
+  padding: 13px 15px;
   border: 1px solid $kentablack;
   border-radius:100%;
   color:$kentablack;
@@ -292,8 +292,8 @@ h3{
 
 }
 
-.deleted-icon{
-  padding: 13px 15px;
+.confirmed-icon{
+  padding: 13px;
   margin-left: 1em;
   background-color: $kentablack;
   border-radius: 100%;
@@ -309,7 +309,7 @@ h3{
 }
 
 .confirmed-icon {
-  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .eye-icon{
@@ -326,8 +326,8 @@ h3{
   justify-content: space-between;
 }
 
-.confirmed-icon-dashboard{
-  padding: 13px 7px;
+.deleted-icon-dashboard{
+  padding: 3px 4px;
   border: 1px solid $kentablack;
   border-radius:100%;
   color:$kentablack;
@@ -338,8 +338,8 @@ h3{
 
 }
 
-.deleted-icon-dashboard{
-  padding: 13px 8.75px;
+.confirmed-icon-dashboard{
+  padding: 3px 5px;
   background-color: $kentablack;
   border-radius: 100%;
   color:white;
@@ -354,4 +354,16 @@ h3{
 
 .txt-n{
   text-decoration: none;
+}
+
+.arrow{
+  padding: 2px 4px;
+  background-color: white;
+  border-radius: 100%;
+  color: $kentablue;
+  cursor: pointer;
+}
+
+.title-availabilities{
+  margin: 0 1em;
 }
