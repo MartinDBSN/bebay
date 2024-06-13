@@ -8,6 +8,9 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  border: 2px solid $kentablack;
+  box-shadow: 5px 5px $kentablack;
+  margin-right: 5px;
   width: 30%;
   background-color: $kentablue;
   padding: 1em;
@@ -107,6 +110,8 @@
 .bebaysit-title {
   display: flex;
   align-items: center;
+  border: 2px solid $kentablack;
+  box-shadow: 5px 5px $kentablack;
   justify-content: center;
   background-color: #F4C345;
   padding: 10px;
@@ -116,6 +121,8 @@
 .title-requests-availabilities {
   display: flex;
   align-items: center;
+  border: 2px solid $kentablack;
+  box-shadow: 5px 5px $kentablack;
   justify-content: center;
   background-color: #F2A6A1;
   padding: 10px;
@@ -158,6 +165,7 @@
 .requests {
   height: 40%;
   border: 2px solid $kentablack;
+  box-shadow: 5px 5px $kentablack;
   border-radius: 20px;
   margin: 10px 0px;
   padding: 15px;
