@@ -48,11 +48,25 @@ hr {
 }
 
 #point-count {
-  color: $kentayellow;
-  background-color: #1A1818;
+  color: $kentablack;
+  border: solid 1px $kentablack;
   font-family: "PPRader-Regular";
   font-size: 20px;
   padding: 6px 15px;
   margin-right: 20px;
   border-radius: 10px;
+}
+
+.fa-coins {
+  padding-right: 6px;
+}
+
+.dropdown-menu {
+  border: solid 1px $kentablack;
+  border-radius: 10px;
+}
+
+.dropdown-item:hover {
+  background-color: rgb(225, 225, 224);
+  transition: 0.1s;
 }

@@ -131,17 +131,18 @@
 
 .form-button-child {
   background-color: $kentayellow;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  border: 2px solid $kentablack;
   padding: 5px 10px;
   border-radius: 10px;
   font-size: 16px;
-  border-color: $kentayellow;
   font-family: 'Syne-Medium';
   font-weight: bold;
 }
 
 .form-button-child:hover{
-  opacity: 50%;
+  box-shadow: 5px 5px $kentablack;
+  transition: 0.2s;
 }
 
 .inline-fields {

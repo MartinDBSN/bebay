@@ -5,7 +5,7 @@
       <div class="family-edit">
         <h2><%= @family.family_name %></h2>
         <%= link_to edit_user_registration_path do %>
-          <%= image_tag "bebay_edit_btn.svg", class: "edit-family-btn" %>
+          <i class="fa-solid fa-pen-to-square" style="color: #f2efea;"></i>
         <% end %>
       </div>
     </div>
@@ -31,7 +31,7 @@
     <div class="title-requests-availabilities-2">
             <div class="pr-2 availabilities-edit-button">
               <a href="#" id="editAvailabilityButton">
-                <i id="add-button-icon" class="fa-solid fa-circle-plus fa-lg" style="color: #0c0000;"></i>
+                <i id="add-button-icon" class="fa-solid fa-circle-plus fa-lg" style="color: #F4F4F4;"></i>
               </a>
             </div>
           <h3 class="title-availabilities" data-action="click->pop-up#reveal">Availabilities</h3>
@@ -143,8 +143,9 @@
             <ul>
               <% if @sent_bookings.empty? || @sent_bookings.all? {|booking| booking.status != "Confirmed"}%>
                 <p class="empty-subsection-placeholder"> No scheduled bebaysittings</p>
-              <% else %>
-                <% @sent_bookings.each do |booking| %>
+              <% end %>
+              <% @sent_bookings.each do |booking| %>
+                <% if booking.status == "Confirmed" %>
                   <%= link_to booking_path(booking), style: "text-decoration:none;" do%>
                   <li class="request-card-dashboard">
                     <h5><%= User.find(booking.welcome_family_id).family_name %></h5>
