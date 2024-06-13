@@ -5,8 +5,17 @@
 
 .family-cards-container {
   display: flex;
-  gap: 10px;
+  column-gap: 12px;
+  row-gap: 32px;
   flex-wrap: wrap;
+
+  .family-card {
+    flex-grow: 0;
+  }
+
+  .family-card-info-container {
+    border: 1px solid $kentablack;
+  }
 }
 
 .criteria-checkboxes {
