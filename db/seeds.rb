@@ -14,7 +14,7 @@ kenta.family_photo.attach(io: image, filename: "#{kenta.family_name}.jpg")
 kenta.save
 
 hugo = User.create(email: "hugo@test.com", password: "123456", family_name: "Nieuwenhuyse", home_address: "Cantersteen, 2, 1000 Brussels", presentation: "Good day fellow Bebayers, we are the Nieuwenhuyse's ! Don't be shy, we are always happy to meet new families and organize awesome creative workshops or excursions whenever we feel like it !", point_count: 100)
-image = URI.open("https://ibb.co/x8MSV5J")
+image = URI.open("https://i.ibb.co/DpzSSpZ/famille-nieuwenhuyse.png")
 hugo.family_photo.attach(io: image, filename: "#{hugo.family_name}.jpg")
 hugo.save
 
