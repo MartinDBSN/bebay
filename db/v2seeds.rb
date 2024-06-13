@@ -145,106 +145,12 @@ image = URI.open("https://images.unsplash.com/photo-1629783509182-68c8c190e952?q
 geneviève.child_photo.attach(io: image, filename: "#{geneviève.name}.jpg")
 geneviève.save
 
-valerien = Child.create!(name: "valerien", gender: "male", birthday: "2018-08-13", user: User.find_by(family_name: "Dubuisson"))
-image = URI.open("https://images.unsplash.com/photo-1602863211758-e35574d21b22?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHlvdW5nJTIwY2hpbGR8ZW58MHx8MHx8fDA%3D")
-valerien.child_photo.attach(io: image, filename: "#{valerien.name}.jpg")
-valerien.save
-
-guillaume = Child.create!(name: "guillaume", gender: "male", birthday: "2018-08-13", user: User.find_by(family_name: "Dubuisson"))
-image = URI.open("https://images.unsplash.com/photo-1566513875272-0e184c92b77c?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHlvdW5nJTIwY2hpbGR8ZW58MHx8MHx8fDA%3D")
-guillaume.child_photo.attach(io: image, filename: "#{guillaume.name}.jpg")
-guillaume.save
-
-kenta = Child.create!(name: "kenta", gender: "male", birthday: "2018-08-13", user: User.find_by(family_name: "Nieuwenhuyse"))
-image = URI.open("https://i.ibb.co/pKQBZnS/Capture-d-cran-2024-06-13-14-58-08.png")
-kenta.child_photo.attach(io: image, filename: "#{kenta.name}.jpg")
-kenta.save
-
-martin = Child.create!(name: "martin", gender: "male", birthday: "2018-08-13", user: User.find_by(family_name: "Nieuwenhuyse"))
-image = URI.open("https://i.ibb.co/YdnQbJz/Capture-d-cran-2024-06-13-14-58-01.png")
-martin.child_photo.attach(io: image, filename: "#{martin.name}.jpg")
-martin.save
+valerie = Child.create!(name: "valerie", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Dubuisson"))
+image = URI.open("https://images.unsplash.com/photo-1594918794521-a0c01cdff8c0?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+valerie.child_photo.attach(io: image, filename: "#{valerie.name}.jpg")
+valerie.save
 
 
-# Pour les 5 premières familles (1 enfant supplémentaire chacune)
-emma = Child.create!(name: "emma", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Merry"))
-emma.save
-
-juliette = Child.create!(name: "juliette", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Merry"))
-juliette.save
-
-sarah = Child.create!(name: "sarah", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Dubois"))
-sarah.save
-
-lea = Child.create!(name: "lea", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Pan"))
-lea.save
-
-camille = Child.create!(name: "camille", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Heynen"))
-camille.save
-
-lucie = Child.create!(name: "lucie", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Heynen"))
-lucie.save
-
-laura = Child.create!(name: "laura", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Dubois"))
-laura.save
-
-hannah = Child.create!(name: "hannah", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Dubois"))
-hannah.save
-
-emma = Child.create!(name: "emma", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Çelik"))
-emma.save
-
-lily = Child.create!(name: "lily", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Gonzalez"))
-lily.save
-
-# Pour les 5 dernières familles (2 enfants supplémentaires chacune)
-alice = Child.create!(name: "alice", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Leroy"))
-alice.save
-
-michael = Child.create!(name: "michael", gender: "male", birthday: "2018-08-13", user: User.find_by(family_name: "Leroy"))
-michael.save
-
-sophie = Child.create!(name: "sophie", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Leclercq"))
-sophie.save
-
-oliver = Child.create!(name: "oliver", gender: "male", birthday: "2018-08-13", user: User.find_by(family_name: "Dubois"))
-oliver.save
-
-elsa = Child.create!(name: "elsa", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Pierson"))
-elsa.save
-
-daniel = Child.create!(name: "daniel", gender: "male", birthday: "2018-08-13", user: User.find_by(family_name: "Pierson"))
-daniel.save
-
-amelie = Child.create!(name: "amelie", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Van Damme"))
-amelie.save
-
-lucie = Child.create!(name: "lucie", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Gonzalez"))
-lucie.save
-
-maria = Child.create!(name: "maria", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Gonzalez"))
-maria.save
-
-marie = Child.create!(name: "marie", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Ricci"))
-marie.save
-
-ali = Child.create!(name: "ali", gender: "male", birthday: "2018-08-13", user: User.find_by(family_name: "Khalid"))
-ali.save
-
-sophie = Child.create!(name: "sophie", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Dupont"))
-sophie.save
-
-pierre = Child.create!(name: "pierre", gender: "male", birthday: "2018-08-13", user: User.find_by(family_name: "Gonzalez"))
-pierre.save
-
-louis = Child.create!(name: "louis", gender: "male", birthday: "2018-08-13", user: User.find_by(family_name: "Martin"))
-louis.save
-
-amelie = Child.create!(name: "amelie", gender: "female", birthday: "2018-08-13", user: User.find_by(family_name: "Martin"))
-amelie.save
-
-thomas = Child.create!(name: "thomas", gender: "male", birthday: "2018-08-13", user: User.find_by(family_name: "Martin"))
-thomas.save
 
 
 puts "Created #{Child.count} children !"
