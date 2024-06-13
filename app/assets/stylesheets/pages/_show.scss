@@ -15,12 +15,18 @@
   margin: auto auto;
 }
 
+.booking-category-display {
+  padding: 12px;
+  background-color: $kentablack;
+  color: $lightbeige;
+  border-radius: 20px;
+}
+
 .family-showpage-photo-card {
   display: flex;
   flex-direction: column;
   width: 33%;
   justify-content: center;
-  background-color: $kentapink;
   background-color: $kentapink;
   border: 2px solid $kentablack;
   box-shadow: 5px 5px $kentablack;
@@ -243,7 +249,12 @@ h3{
   padding-right: 1em;
 }
 
-
+.address-show-booking, .datetime-show-booking {
+  padding: 6px 10px;
+  border-radius: 15px;
+  background-color: $lightbeige;
+  border: 1.5px solid $kentablack;
+}
 
 .icon-back{
   padding-right:1em;
@@ -295,6 +306,10 @@ h3{
 
 .confirmation {
   display: flex;
+}
+
+.confirmed-icon {
+  margin-left: 20px;
 }
 
 .eye-icon{

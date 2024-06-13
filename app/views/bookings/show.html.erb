@@ -1,43 +1,51 @@
 <div class="family-showpage-container">
   <div class="family-showpage-hz-container">
     <div class="family-showpage-photo-card">
-    <% if current_user.id == @family.id %>
-      <%= cl_image_tag @welcome_family.family_photo.key %>
-    <% else %>
-      <%= cl_image_tag @family.family_photo.key %>
-    <% end %>
-        <div class="family-showpage-name">
-          <% if current_user.id == @family.id %>
+      <% if current_user.id == @family.id %>
+        <%= cl_image_tag @welcome_family.family_photo.key %>
+      <% else %>
+        <%= cl_image_tag @family.family_photo.key %>
+      <% end %>
+      <div class="family-showpage-name">
+        <% if current_user.id == @family.id %>
           <h1><%= @welcome_family.family_name %></h1>
-          <%= link_to family_path(@welcome_family), class: "link-icon" do%>
+          <%= link_to family_path(@welcome_family), class: "link-icon" do %>
             <i class="fa-solid fa-link"></i>
           <% end %>
-          <% else %>
+        <% else %>
           <h1><%= @family.family_name %></h1>
-          <%= link_to family_path(@family), class: "link-icon" do%>
+          <%= link_to family_path(@family), class: "link-icon" do %>
             <i class="fa-solid fa-link"></i>
           <% end %>
-          <% end %>
-        </div>
+        <% end %>
+      </div>
+      <%# <p><%= @family.presentation </p> %>
     </div>
     <div class="family-showpage-info-card">
       <% if @booking.status == "Confirmed" %>
-        <p class="show-booking-status"><i class="status-icon status-icon-confirmed fa-solid fa-circle"></i>Confirmed</p>
+        <p class="show-booking-status">
+          <i class="status-icon status-icon-confirmed fa-solid fa-circle"></i>Confirmed
+        </p>
       <% else %>
-        <p class="show-booking-status"><i class="status-icon status-icon-pending fa-solid fa-circle"></i>Pending</p>
+        <p class="show-booking-status">
+          <i class="status-icon status-icon-pending fa-solid fa-circle"></i>Pending
+        </p>
       <% end %>
       <% if @booking.status == "Confirmed" %>
-        <h2>Booking from: <%= @family.family_name %></h2>
-        <p class="show-booking-p">📍<%= @welcome_family.home_address %> - 📆<%= @booking.start_date.strftime("%Y/%m/%d, %I:%M%p") %></p class="show-booking-p">
+        <h2>Booking from: <%= @family.family_name %> to <%= @welcome_family.family_name %></h2>
+        <p class="booking-category-display"><%= @booking.category %></p>
+        <p class="address-show-booking">📍  <%= @welcome_family.home_address %></p>
+        <p class="datetime-show-booking"> 📆  <%= @booking.start_date.strftime("%Y/%m/%d, %I:%M%p") %></p>
       <% else %>
-        <h2>New Request from: <%= @family.family_name %></h2>
-        <p class="show-booking-p">📍<%= @welcome_family.home_address %> - 📆<%= @booking.start_date.strftime("%Y/%m/%d, %I:%M%p") %></p class="show-booking-p">
+        <h2>New Request from: <%= @family.family_name %> to <%= @welcome_family.family_name %></h2>
+        <p class="booking-category-display"><%= @booking.category %></p>
+        <p class="address-show-booking">📍  <%= @welcome_family.home_address %></p>
+        <p class="datetime-show-booking"> 📆  <%= @booking.start_date.strftime("%Y/%m/%d, %I:%M%p") %></p>
       <% end %>
       <div class="family-showpage-description request">
-        <p><%= @family.presentation %></p>
-        <% if @booking.description != "" && @booking.description != nil %>
-        <h3>Comment:</h3>
-        <p><%= @booking.description %></p>
+        <% if @booking.description.present? %>
+          <h3>Comment:</h3>
+          <p><%= @booking.description %></p>
         <% end %>
       </div>
       <div class="family-showpage-child-mini">
@@ -50,17 +58,17 @@
           <% end %>
         <% end %>
         <% if @booking.status != "Confirmed" %>
-        <div class="confirmation">
-          <%= link_to booking_validate_path(@booking), data: {turbo_method: "patch", turbo_confirm: "Are you sure?"}, style: 'text-decoration:none;' do%>
-            <i class="fa-solid fa-check confirmed-icon"></i>
-          <% end %>
-          <%= link_to booking_path(@booking), data: {turbo_method: "delete", turbo_confirm: "Are you sure?"} do%>
-            <i class="fa-solid fa-x deleted-icon"></i>
-          <% end %>
+          <div class="confirmation">
+            <%= link_to booking_path(@booking), data: { turbo_method: "delete", turbo_confirm: "Are you sure?" } do %>
+              <i class="fa-solid fa-x deleted-icon"></i>
+            <% end %>
+            <%= link_to booking_validate_path(@booking), data: { turbo_method: "patch", turbo_confirm: "Are you sure?" }, style: 'text-decoration:none;' do %>
+              <i class="fa-solid fa-check confirmed-icon"></i>
+            <% end %>
           </div>
         <% end %>
       </div>
-      <%= link_to dashboard_path, class: "back-dashboard" do%>
+      <%= link_to dashboard_path, class: "back-dashboard" do %>
         <i class="fa-solid fa-backward icon-back"></i>Back to dashboard
       <% end %>
     </div>
