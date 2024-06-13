@@ -10,16 +10,9 @@
 
 .family-showpage-hz-container {
   display: flex;
-  width: 65%;
+  width: 70%;
   justify-content: center;
   margin: auto auto;
-}
-
-.booking-category-display {
-  padding: 12px;
-  background-color: $kentablack;
-  color: $lightbeige;
-  border-radius: 20px;
 }
 
 .family-showpage-photo-card {
@@ -229,10 +222,10 @@ h3{
 }
 
 .show-booking-status{
-  background-color: $lightbeige;
-  border: 2px solid $kentablack;
+  background-color: $kentablack;
+  color: $lightbeige;
   border-radius: 20px;
-  padding: 10px;
+  padding: 10px 14px;
 }
 
 .status-icon{
@@ -249,13 +242,6 @@ h3{
   padding-right: 1em;
 }
 
-.address-show-booking, .datetime-show-booking {
-  padding: 6px 10px;
-  border-radius: 15px;
-  background-color: $lightbeige;
-  border: 1.5px solid $kentablack;
-}
-
 .icon-back{
   padding-right:1em;
 }
@@ -263,11 +249,12 @@ h3{
   color:$lightbeige;
   text-decoration:none;
   font-family: "Syne-Medium";
+  font-size: 17px;
   font-weight: normal;
 }
 
 .back-dashboard:hover{
-  color: $kentablue;
+  color: $kentablack;
   text-decoration:solid;
 }
 
@@ -282,6 +269,7 @@ h3{
 
 .confirmed-icon{
   padding: 13px;
+  margin: 10px;
   border: 1px solid $kentablack;
   border-radius:100%;
   color:$kentablack;
@@ -294,7 +282,7 @@ h3{
 
 .deleted-icon{
   padding: 13px 15px;
-  margin-left: 1em;
+  margin: 10px;
   background-color: $kentablack;
   border-radius: 100%;
   color:white;
@@ -306,10 +294,8 @@ h3{
 
 .confirmation {
   display: flex;
-}
-
-.confirmed-icon {
-  margin-left: 20px;
+  justify-content: center;
+  margin: auto auto;
 }
 
 .eye-icon{
@@ -354,4 +340,24 @@ h3{
 
 .txt-n{
   text-decoration: none;
+}
+
+.booking-request-info {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.booking-info-display {
+  padding: 10px;
+  color: $kentablack;
+  border-radius: 10px;
+  padding: 6px 20px;
+  background-color: $lightbeige;
+  border: 1.5px solid $kentablack;
+  margin: 0px 4px;
+}
+
+.fa-person-breastfeeding, .fa-location-dot, .fa-calendar {
+  padding-right: 5px;
 }
