@@ -35,6 +35,27 @@
   }
 }
 
+
+.family-showpage-photo-card-booking {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  justify-content: center;
+  background-color: $kentayellow;
+  border: 2px solid $kentablack;
+  box-shadow: 5px 5px $kentablack;
+  border-radius: 30px;
+  margin-right: 15px;
+  padding: 15px;
+
+  img {
+    height: 250px;
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+}
+
 .family-showpage-name {
   background-color: $lightbeige;
   border: 2px solid $kentablack;
@@ -106,8 +127,9 @@
   font-weight: bold;
 }
 
-.submit-button:hover{
-opacity:50%;
+.submit-button:hover {
+  box-shadow: 5px 5px $kentablack;
+  transition: 0.2s
 }
 
 

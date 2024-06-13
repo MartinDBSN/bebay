@@ -65,7 +65,7 @@ margin:auto;
 .form-field{
   border-radius: 10px;
   font-family: 'Syne-Medium';
-  border: 2px solid black;
+  border: 2px solid $kentablack;
   padding: 10px 15px;
   margin: 0px 5px;
   font-weight: bold;
@@ -73,16 +73,19 @@ margin:auto;
 
 .form-button{
   background-color: $kentablue;
+  color: white;
+  border: 2px solid $kentablack;
   padding: 10px 40px;
   border-radius: 10px;
-  border-color: $kentablue;
   font-family: 'Syne-Medium';
   font-weight: bold;
 }
 
-.form-button:hover{
-  opacity: 50%;
+.form-button:hover {
+  box-shadow: 5px 5px $kentablack;
+  transition: 0.2s;
 }
+
 .home-cards-container {
   display: flex;
   justify-content: center;

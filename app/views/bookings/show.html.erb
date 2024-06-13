@@ -1,6 +1,6 @@
 <div class="family-showpage-container">
   <div class="family-showpage-hz-container">
-    <div class="family-showpage-photo-card">
+    <div class="family-showpage-photo-card-booking">
       <% if current_user.id == @family.id %>
         <%= cl_image_tag @welcome_family.family_photo.key %>
       <% else %>
@@ -30,7 +30,12 @@
           <i class="status-icon status-icon-pending fa-solid fa-circle"></i>Pending
         </p>
       <% end %>
-      <% if @booking.status == "Confirmed" %>
+      <% if @booking.status == "Confirmed"%>
+        <% if @booking.welcome_family_id == current_user.id %>
+          <p class="points-value-booking"><strong>+ 10 points</strong></p>
+        <% else %>
+          <p class="points-value-booking"><strong>- 10 points</strong></p>
+        <% end %>
         <h2>Booking from: <%= @family.family_name %> to <%= @welcome_family.family_name %></h2>
         <div class="booking-request-info">
           <p class="booking-info-display"><i class="fa-solid fa-person-breastfeeding" style="color: #1a1818;"></i> <%= @booking.category %></p>
@@ -38,17 +43,21 @@
           <p class="booking-info-display"><i class="fa-solid fa-calendar" style="color: #1a1818;"></i> <%= @booking.start_date.strftime("%Y/%m/%d, %I:%M%p") %></p>
         </div>
       <% else %>
+        <% if @booking.welcome_family_id == current_user.id %>
+          <p class="points-value-booking">You will earn <strong>10 points</strong></p>
+        <% else %>
+          <p class="points-value-booking">It will cost you <strong>10 points</strong></p>
+        <% end %>
         <h2>New Request from: <%= @family.family_name %> to <%= @welcome_family.family_name %></h2>
         <div class="booking-request-info">
-          <p class="booking-info-display"><%= @booking.category %></p>
-          <p class="booking-info-display">📍  <%= @welcome_family.home_address %></p>
-          <p class="booking-info-display"> 📆  <%= @booking.start_date.strftime("%Y/%m/%d, %I:%M%p") %></p>
+          <p class="booking-info-display"><i class="fa-solid fa-person-breastfeeding" style="color: #1a1818;"></i> <%= @booking.category %></p>
+          <p class="booking-info-display"><i class="fa-solid fa-location-dot" style="color: #181717;"></i> <%= @welcome_family.home_address %></p>
+          <p class="booking-info-display"><i class="fa-solid fa-calendar" style="color: #1a1818;"></i> <%= @booking.start_date.strftime("%Y/%m/%d, %I:%M%p") %></p>
         </div>
       <% end %>
       <div class="family-showpage-description request">
         <% if @booking.description.present? %>
-          <h3>Comment:</h3>
-          <p><%= @booking.description %></p>
+          <p><i>"<%= @booking.description %>"</i></p>
         <% end %>
       </div>
       <div class="family-showpage-child-mini">
