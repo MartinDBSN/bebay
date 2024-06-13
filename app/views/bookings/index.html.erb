@@ -9,7 +9,7 @@
         <% end %>
       </div>
     </div>
-  <div class="separator"></div>
+    <hr class="separator">
     <div class="container-family-dashboard-children">
       <% @children.each do |child| %>
         <% if child.child_photo.present? %>
@@ -26,7 +26,7 @@
         <h5>Add child</h5>
       </div>
     </div>
-    <div class="separator"></div>
+    <hr class="separator">
     <div class="availabilities-section" data-controller="pop-up">
     <div class="title-requests-availabilities-2">
             <div class="pr-2 availabilities-edit-button">
@@ -38,6 +38,7 @@
         <i class="fa-solid fa-arrow-down arrow" data-action="click->pop-up#reveal"></i>
         </div>
                             <div class="availabilities-subsection d-none" data-pop-up-target="availabilities">
+                            <% if @availabilities.any? %>
                               <ul>
                                 <% @availabilities.each do |availability| %>
                                 <div class="availability-design-line">
@@ -49,6 +50,9 @@
                                 </div>
                                 <% end %>
                               </ul>
+                              <% else %>
+                                <p style="text-align:center;">No availabilities yet</p>
+                              <% end %>
                               </div>
         </div>
     </div>

@@ -12,7 +12,7 @@
   border: 2px solid $kentablack;
   box-shadow: 5px 5px $kentablack;
   margin-right: 5px;
-  width: 30%;
+  width: 25%;
   background-color: $kentablue;
   padding: 1em;
   border-radius: 20px;
@@ -75,7 +75,7 @@
 }
 
 .child-mini {
-  margin: 10px 15px;
+  margin: 0px 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -156,7 +156,7 @@
 
 .separator {
   width: 100%;
-  height: 1px;
+  height: 5px;
   background-color: $lightbeige;
   margin: 10px;
 }
@@ -185,6 +185,7 @@
 }
 
 .availabilities-subsection {
+  height: 11vh;
   border-radius: 20px;
   padding: 15px;
   overflow-y: auto;
